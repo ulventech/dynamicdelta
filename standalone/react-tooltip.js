@@ -1199,7 +1199,7 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
-          text: resp.config.text
+          text: resp.config.text || ''
         });
       }).catch(function (error) {
         console.error('DDP ERROR:', error);
@@ -1276,7 +1276,7 @@ var DDP = exports.DDP = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
-          text: resp.config.text
+          text: resp.config.text || ''
         });
       }).catch(function (error) {
         console.error('DDP ERROR:', error);
@@ -1304,12 +1304,78 @@ exports.default = DDP;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"prop-types":9}],13:[function(require,module,exports){
+(function (global){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DDH1 = exports.DDP = undefined;
+exports.DynamicDelta = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DynamicDelta = exports.DynamicDelta = function (_React$Component) {
+  _inherits(DynamicDelta, _React$Component);
+
+  function DynamicDelta() {
+    _classCallCheck(this, DynamicDelta);
+
+    return _possibleConstructorReturn(this, (DynamicDelta.__proto__ || Object.getPrototypeOf(DynamicDelta)).apply(this, arguments));
+  }
+
+  _createClass(DynamicDelta, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      console.log(nextProps);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.props.children
+      );
+    }
+  }]);
+
+  return DynamicDelta;
+}(_react2.default.Component);
+
+DynamicDelta.propTypes = {
+  projectID: _propTypes2.default.string.isRequired
+};
+
+exports.default = DynamicDelta;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"prop-types":9}],14:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DDH1 = exports.DDP = exports.DymamicDelta = undefined;
+
+var _DynamicDelta = require('./core/DynamicDelta');
+
+var _DynamicDelta2 = _interopRequireDefault(_DynamicDelta);
 
 var _DDP2 = require('./components/DDP');
 
@@ -1321,8 +1387,9 @@ var _DDH3 = _interopRequireDefault(_DDH2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+exports.DymamicDelta = _DynamicDelta2.default;
 exports.DDP = _DDP3.default;
 exports.DDH1 = _DDH3.default;
 
-},{"./components/DDH1":11,"./components/DDP":12}]},{},[13])(13)
+},{"./components/DDH1":11,"./components/DDP":12,"./core/DynamicDelta":13}]},{},[14])(14)
 });

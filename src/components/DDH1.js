@@ -14,7 +14,7 @@ export class DDH1 extends React.Component {
       .then((response) => response.json())
       .then((resp) => {
         this.setState({
-          text: resp.config.text,
+          text: resp.config.text || '',
         });
       })
       .catch((error) => {
