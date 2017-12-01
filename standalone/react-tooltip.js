@@ -1156,11 +1156,11 @@ module.exports = ReactPropTypesSecret;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DDP = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp;
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
@@ -1178,7 +1178,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DDP = exports.DDP = function (_React$Component) {
+var DDP = (_temp = _class = function (_React$Component) {
   _inherits(DDP, _React$Component);
 
   function DDP(props) {
@@ -1200,18 +1200,12 @@ var DDP = exports.DDP = function (_React$Component) {
       fetch('https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        console.log(resp);
-        _this2.setState(_extends({}, resp.config));
-      }).catch(function (error) {
-        console.error(error);
-      });
-      /*
-      axios.get(`https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/${this.props.componentID}`).then((resp) => {
-        this.setState({
-          config: resp.data.config,
+        _this2.setState({
+          text: resp.config.text
         });
+      }).catch(function (error) {
+        console.error('DDP ERROR:', error);
       });
-      */
     }
   }, {
     key: 'render',
@@ -1225,12 +1219,9 @@ var DDP = exports.DDP = function (_React$Component) {
   }]);
 
   return DDP;
-}(_react2.default.Component);
-
-DDP.propTypes = {
+}(_react2.default.Component), _class.propTypes = {
   componentID: _propTypes2.default.string.isRequired
-};
-
+}, _temp);
 exports.default = DDP;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
