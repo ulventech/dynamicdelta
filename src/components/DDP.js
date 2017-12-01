@@ -12,7 +12,7 @@ export class DDP extends React.Component {
   componentDidMount() {
     axios.get(`https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/${this.props.componentID}`).then((resp) => {
       this.setState({
-        ...resp.data.config,
+        config: resp.data.config,
       });
     });
   }
