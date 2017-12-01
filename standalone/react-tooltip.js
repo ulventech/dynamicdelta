@@ -1164,6 +1164,10 @@ var _react = (typeof window !== "undefined" ? window['React'] : typeof global !=
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1216,13 +1220,13 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
 }(_react2.default.Component);
 
 DDH1.propTypes = {
-  componentID: PropTypes.string.isRequired
+  componentID: _propTypes2.default.string.isRequired
 };
 
 exports.default = DDH1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],12:[function(require,module,exports){
+},{"prop-types":9}],12:[function(require,module,exports){
 (function (global){
 'use strict';
 

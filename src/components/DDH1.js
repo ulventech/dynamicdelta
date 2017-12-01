@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class DDH1 extends React.Component {
   constructor(props) {
