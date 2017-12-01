@@ -1195,11 +1195,23 @@ var DDP = exports.DDP = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios.get('https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/' + this.props.componentID).then(function (resp) {
+      fetch('https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/' + this.props.componentID).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        console.log(resp);
         _this2.setState({
-          config: resp.data.config
+          config: resp.config
+        });
+      }).catch(function (error) {
+        console.error(error);
+      });
+      /*
+      axios.get(`https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/${this.props.componentID}`).then((resp) => {
+        this.setState({
+          config: resp.data.config,
         });
       });
+      */
     }
   }, {
     key: 'render',
