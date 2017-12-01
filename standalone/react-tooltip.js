@@ -1156,11 +1156,82 @@ module.exports = ReactPropTypesSecret;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
+exports.DDH1 = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _temp;
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DDH1 = exports.DDH1 = function (_React$Component) {
+  _inherits(DDH1, _React$Component);
+
+  function DDH1(props) {
+    _classCallCheck(this, DDH1);
+
+    var _this = _possibleConstructorReturn(this, (DDH1.__proto__ || Object.getPrototypeOf(DDH1)).call(this, props));
+
+    _this.state = {
+      text: ''
+    };
+    return _this;
+  }
+
+  _createClass(DDH1, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/' + this.props.componentID).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState({
+          text: resp.config.text
+        });
+      }).catch(function (error) {
+        console.error('DDP ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'h1',
+        null,
+        this.state.text
+      );
+    }
+  }]);
+
+  return DDH1;
+}(_react2.default.Component);
+
+DDH1.propTypes = {
+  componentID: PropTypes.string.isRequired
+};
+
+exports.default = DDH1;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],12:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DDP = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
@@ -1178,7 +1249,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DDP = (_temp = _class = function (_React$Component) {
+var DDP = exports.DDP = function (_React$Component) {
   _inherits(DDP, _React$Component);
 
   function DDP(props) {
@@ -1219,27 +1290,35 @@ var DDP = (_temp = _class = function (_React$Component) {
   }]);
 
   return DDP;
-}(_react2.default.Component), _class.propTypes = {
+}(_react2.default.Component);
+
+DDP.propTypes = {
   componentID: _propTypes2.default.string.isRequired
-}, _temp);
+};
+
 exports.default = DDP;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"prop-types":9}],12:[function(require,module,exports){
+},{"prop-types":9}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DDP = undefined;
+exports.DDH1 = exports.DDP = undefined;
 
 var _DDP2 = require('./components/DDP');
 
 var _DDP3 = _interopRequireDefault(_DDP2);
 
+var _DDH2 = require('./components/DDH1');
+
+var _DDH3 = _interopRequireDefault(_DDH2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.DDP = _DDP3.default;
+exports.DDH1 = _DDH3.default;
 
-},{"./components/DDP":11}]},{},[12])(12)
+},{"./components/DDH1":11,"./components/DDP":12}]},{},[13])(13)
 });
