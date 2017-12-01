@@ -1158,6 +1158,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DDP = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
@@ -1199,9 +1201,7 @@ var DDP = exports.DDP = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         console.log(resp);
-        _this2.setState({
-          config: resp.config
-        });
+        _this2.setState(_extends({}, resp.config));
       }).catch(function (error) {
         console.error(error);
       });

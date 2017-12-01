@@ -15,7 +15,7 @@ export class DDP extends React.Component {
       .then((resp) => {
         console.log(resp);
         this.setState({
-          config: resp.config,
+          ...resp.config,
         });
       })
       .catch((error) => {
