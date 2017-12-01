@@ -1,0 +1,15 @@
+{
+  "name": "dynamicdelta",
+  "version": "0.0.1",
+  "description": "Dynamic components for use with www.dynamicdelta.com",
+  "main": "index.js",
+  "repository": "https://github.com/ulventech/dynamicdelta.git",
+  "author": "Daniel Dyrnes <thedanielforum@gmail.com> (https://www.dynamicdelta.com)",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "axios": "^0.17.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0"
+  }
+}
