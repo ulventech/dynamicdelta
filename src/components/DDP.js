@@ -13,14 +13,14 @@ export class DDP extends React.Component {
   componentDidMount() {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`, {
       mode: 'no-cors'
-    })
-    .then((response) => response.json())
-    .then((resp) => {
+    }).then((response) => {
+      console.log(response);
+      return response.json()
+    }).then((resp) => {
       this.setState({
         text: resp.text || ' ',
       });
-    })
-    .catch((error) => {
+    }).catch((error) => {
       console.error('DDP ERROR:', error);
     });
   }

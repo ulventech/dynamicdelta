@@ -2185,6 +2185,7 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json', {
         mode: 'no-cors'
       }).then(function (response) {
+        console.log(response);
         return response.json();
       }).then(function (resp) {
         _this2.setState({
@@ -2272,6 +2273,7 @@ var DDP = exports.DDP = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json', {
         mode: 'no-cors'
       }).then(function (response) {
+        console.log(response);
         return response.json();
       }).then(function (resp) {
         _this2.setState({
