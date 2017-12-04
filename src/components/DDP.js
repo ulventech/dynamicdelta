@@ -11,16 +11,18 @@ export class DDP extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`)
-      .then((response) => response.json())
-      .then((resp) => {
-        this.setState({
-          text: resp.text || ' ',
-        });
-      })
-      .catch((error) => {
-        console.error('DDP ERROR:', error);
+    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`, {
+      mode: 'no-cors'
+    })
+    .then((response) => response.json())
+    .then((resp) => {
+      this.setState({
+        text: resp.text || ' ',
       });
+    })
+    .catch((error) => {
+      console.error('DDP ERROR:', error);
+    });
   }
 
   render() {
