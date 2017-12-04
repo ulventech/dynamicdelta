@@ -10,7 +10,7 @@ export class DDH1 extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/${this.props.componentID}`)
+    fetch(`https://us-central1-react-cms-184905.cloudfunctions.net/fetch/${this.context.projectID}/${this.props.componentID}`)
       .then((response) => response.json())
       .then((resp) => {
         this.setState({
@@ -28,6 +28,10 @@ export class DDH1 extends React.Component {
     );
   }
 }
+
+DDH1.contextTypes = {
+  projectID: PropTypes.string.isRequired,
+};
 
 DDH1.propTypes = {
   componentID: PropTypes.string.isRequired,

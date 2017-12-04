@@ -30,7 +30,7 @@ export class DDP extends React.Component {
 }
 
 DDP.contextTypes = {
-  projectID: PropTypes.string
+  projectID: PropTypes.string.isRequired,
 };
 
 DDP.propTypes = {

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 
 export class DynamicDelta extends React.Component {
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-  }
-
   getChildContext() {
+    if (isEmpty(this.props.projectID)) {
+      console.error('DynamicDelta: projectID is required')
+    }
     return { projectID: this.props.projectID };
   }
 
@@ -20,7 +20,7 @@ export class DynamicDelta extends React.Component {
 }
 
 DynamicDelta.childContextTypes = {
-  projectID: PropTypes.string
+  projectID: PropTypes.string.isRequired,
 };
 
 DynamicDelta.propTypes = {
