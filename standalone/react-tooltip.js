@@ -1368,28 +1368,25 @@ exports.default = DynamicDelta;
 },{"prop-types":9}],14:[function(require,module,exports){
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.DDH1 = exports.DDP = exports.DymamicDelta = undefined;
-
 var _DynamicDelta = require('./core/DynamicDelta');
 
 var _DynamicDelta2 = _interopRequireDefault(_DynamicDelta);
 
-var _DDP2 = require('./components/DDP');
+var _DDP = require('./components/DDP');
 
-var _DDP3 = _interopRequireDefault(_DDP2);
+var _DDP2 = _interopRequireDefault(_DDP);
 
-var _DDH2 = require('./components/DDH1');
+var _DDH = require('./components/DDH1');
 
-var _DDH3 = _interopRequireDefault(_DDH2);
+var _DDH2 = _interopRequireDefault(_DDH);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.DymamicDelta = _DynamicDelta2.default;
-exports.DDP = _DDP3.default;
-exports.DDH1 = _DDH3.default;
+module.exports = {
+  DymamicDelta: _DynamicDelta2.default,
+  DDP: _DDP2.default,
+  DDH1: _DDH2.default
+};
 
 },{"./components/DDH1":11,"./components/DDP":12,"./core/DynamicDelta":13}]},{},[14])(14)
 });

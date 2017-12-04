@@ -1,12 +1,13 @@
 {
   "name": "dynamicdelta",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Dynamic components for use with www.dynamicdelta.com",
   "main": "dist/index.js",
   "repository": "https://github.com/ulventech/dynamicdelta.git",
   "author": "Daniel Dyrnes <thedanielforum@gmail.com> (https://www.dynamicdelta.com)",
   "license": "MIT",
   "private": false,
+  "homepage": "https://www.dynamicdelta.com/",
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.2.0"
@@ -40,6 +41,8 @@
     "babelify": "^7.2.0",
     "browserify": "^14.5.0",
     "browserify-shim": "^3.8.14",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3",
     "uglify-js": "^3.2.0"
   }
 }

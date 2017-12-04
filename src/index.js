@@ -1,5 +1,11 @@
 'use strict';
 
-export DymamicDelta from './core/DynamicDelta';
-export DDP from './components/DDP';
-export DDH1 from './components/DDH1';
+import DymamicDelta from './core/DynamicDelta';
+import DDP from './components/DDP';
+import DDH1 from './components/DDH1';
+
+module.exports = {
+  DymamicDelta,
+  DDP,
+  DDH1,
+};
