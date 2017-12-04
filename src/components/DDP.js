@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { API } from '../config.json';
 
 export class DDP extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export class DDP extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://us-central1-react-cms-184905.cloudfunctions.net/fetch/${this.context.projectID}/${this.props.componentID}`)
+    fetch(`${API}/${this.context.projectID}/${this.props.componentID}.json`)
       .then((response) => response.json())
       .then((resp) => {
         this.setState({
