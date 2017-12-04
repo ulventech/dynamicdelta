@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { API } from '../config.json';
+import CONSTANT from '../constant';
 
 export class DDH1 extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export class DDH1 extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${API}/${this.context.projectID}/${this.props.componentID}.json`)
+    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`)
       .then((response) => response.json())
       .then((resp) => {
         this.setState({

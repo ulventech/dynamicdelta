@@ -2151,7 +2151,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _config = require('../config.json');
+var _constant = require('../constant');
+
+var _constant2 = _interopRequireDefault(_constant);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2180,7 +2182,7 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch(_config.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json').then(function (response) {
+      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json').then(function (response) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
@@ -2215,7 +2217,7 @@ DDH1.propTypes = {
 exports.default = DDH1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../config.json":50,"prop-types":46}],49:[function(require,module,exports){
+},{"../constant":50,"prop-types":46}],49:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -2234,7 +2236,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _config = require('../config.json');
+var _constant = require('../constant');
+
+var _constant2 = _interopRequireDefault(_constant);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2263,7 +2267,7 @@ var DDP = exports.DDP = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch(_config.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json').then(function (response) {
+      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json').then(function (response) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
@@ -2298,10 +2302,18 @@ DDP.propTypes = {
 exports.default = DDP;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../config.json":50,"prop-types":46}],50:[function(require,module,exports){
-module.exports={
-  "API": "https://cdn.dynamicdelta.com"
-}
+},{"../constant":50,"prop-types":46}],50:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  GLOBAL: {
+    API: 'https://cdn.dynamicdelta.com'
+  }
+};
+
 },{}],51:[function(require,module,exports){
 (function (global){
 'use strict';
