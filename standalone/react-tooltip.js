@@ -2186,7 +2186,7 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
-          text: resp.config.text || ''
+          text: resp.text || ' '
         });
       }).catch(function (error) {
         console.error('DDP ERROR:', error);
@@ -2271,7 +2271,7 @@ var DDP = exports.DDP = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
-          text: resp.config.text || ''
+          text: resp.text || ' '
         });
       }).catch(function (error) {
         console.error('DDP ERROR:', error);
