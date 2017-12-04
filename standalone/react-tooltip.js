@@ -2182,12 +2182,10 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json', {
-        mode: 'no-cors'
-      }).then(function (response) {
-        console.log(response);
+      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json', _constant2.default.GLOBAL.FETCH).then(function (response) {
         return response.json();
       }).then(function (resp) {
+        console.log(resp);
         _this2.setState({
           text: resp.text || ' '
         });
@@ -2270,12 +2268,10 @@ var DDP = exports.DDP = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json', {
-        mode: 'no-cors'
-      }).then(function (response) {
-        console.log(response);
+      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID + '.json', _constant2.default.GLOBAL.FETCH).then(function (response) {
         return response.json();
       }).then(function (resp) {
+        console.log(resp);
         _this2.setState({
           text: resp.text || ' '
         });
@@ -2316,7 +2312,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   GLOBAL: {
-    API: 'https://cdn.dynamicdelta.com'
+    API: 'https://cdn.dynamicdelta.com',
+    FETCH: {
+      method: 'GET',
+      mode: 'no-cors'
+    }
   }
 };
 

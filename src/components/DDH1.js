@@ -11,18 +11,17 @@ export class DDH1 extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`, {
-      mode: 'no-cors'
-    }).then((response) => {
-      console.log(response);
-      return response.json()
-    }).then((resp) => {
-      this.setState({
-        text: resp.text || ' ',
+    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`, CONSTANT.GLOBAL.FETCH)
+      .then(response => response.json())
+      .then((resp) => {
+        console.log(resp);
+        this.setState({
+          text: resp.text || ' ',
+        });
+      })
+      .catch((error) => {
+        console.error('DDP ERROR:', error);
       });
-    }).catch((error) => {
-      console.error('DDP ERROR:', error);
-    });
   }
 
   render() {
