@@ -6,6 +6,10 @@ export class DynamicDelta extends React.Component {
     console.log(nextProps);
   }
 
+  getChildContext() {
+    return { projectID: this.props.projectID };
+  }
+
   render() {
     return (
       <div>
@@ -14,6 +18,10 @@ export class DynamicDelta extends React.Component {
     )
   }
 }
+
+DynamicDelta.childContextTypes = {
+  projectID: PropTypes.string
+};
 
 DynamicDelta.propTypes = {
   projectID: PropTypes.string.isRequired,

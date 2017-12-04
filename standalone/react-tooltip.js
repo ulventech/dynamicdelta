@@ -1272,7 +1272,7 @@ var DDP = exports.DDP = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch('https://us-central1-react-cms-184905.cloudfunctions.net/fetch/97c5bf17-f44f-451c-b39f-fcaad7786d52/' + this.props.componentID).then(function (response) {
+      fetch('https://us-central1-react-cms-184905.cloudfunctions.net/fetch/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
@@ -1295,6 +1295,10 @@ var DDP = exports.DDP = function (_React$Component) {
 
   return DDP;
 }(_react2.default.Component);
+
+DDP.contextTypes = {
+  projectID: _propTypes2.default.string
+};
 
 DDP.propTypes = {
   componentID: _propTypes2.default.string.isRequired
@@ -1345,6 +1349,11 @@ var DynamicDelta = exports.DynamicDelta = function (_React$Component) {
       console.log(nextProps);
     }
   }, {
+    key: 'getChildContext',
+    value: function getChildContext() {
+      return { projectID: this.props.projectID };
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -1357,6 +1366,10 @@ var DynamicDelta = exports.DynamicDelta = function (_React$Component) {
 
   return DynamicDelta;
 }(_react2.default.Component);
+
+DynamicDelta.childContextTypes = {
+  projectID: _propTypes2.default.string
+};
 
 DynamicDelta.propTypes = {
   projectID: _propTypes2.default.string.isRequired
