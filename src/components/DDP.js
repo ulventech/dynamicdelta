@@ -11,7 +11,7 @@ export class DDP extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}.json`, CONSTANT.GLOBAL.FETCH)
+    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
       .then(response => response.json())
       .then((resp) => {
         console.log(resp);
