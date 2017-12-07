@@ -14,7 +14,6 @@ export class DDP extends React.Component {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
       .then(response => response.json())
       .then((resp) => {
-        console.log(resp);
         this.setState({
           text: resp.text || ' ',
         });
