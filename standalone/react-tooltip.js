@@ -2185,7 +2185,6 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        console.log(resp);
         _this2.setState({
           text: resp.text || ' '
         });
@@ -2271,7 +2270,6 @@ var DDP = exports.DDP = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        console.log(resp);
         _this2.setState({
           text: resp.text || ' '
         });
@@ -2411,7 +2409,7 @@ var _DDH2 = _interopRequireDefault(_DDH);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
-  DymamicDelta: _DynamicDelta2.default,
+  DynamicDelta: _DynamicDelta2.default,
   DDP: _DDP2.default,
   DDH1: _DDH2.default
 };
