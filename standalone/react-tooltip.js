@@ -2197,7 +2197,9 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'h1',
-        null,
+        {
+          style: this.props.styles
+        },
         this.state.text
       );
     }
@@ -2211,7 +2213,12 @@ DDH1.contextTypes = {
 };
 
 DDH1.propTypes = {
-  componentID: _propTypes2.default.string.isRequired
+  componentID: _propTypes2.default.string.isRequired,
+  styles: _propTypes2.default.object
+};
+
+DDH1.defaultProps = {
+  styles: {}
 };
 
 exports.default = DDH1;
@@ -2282,7 +2289,9 @@ var DDP = exports.DDP = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'p',
-        null,
+        {
+          style: this.props.styles
+        },
         this.state.text
       );
     }
@@ -2296,7 +2305,12 @@ DDP.contextTypes = {
 };
 
 DDP.propTypes = {
-  componentID: _propTypes2.default.string.isRequired
+  componentID: _propTypes2.default.string.isRequired,
+  styles: _propTypes2.default.object
+};
+
+DDP.defaultProps = {
+  styles: {}
 };
 
 exports.default = DDP;

@@ -25,7 +25,11 @@ export class DDP extends React.Component {
 
   render() {
     return (
-      <p>{this.state.text}</p>
+      <p
+        style={this.props.styles}
+      >
+        {this.state.text}
+      </p>
     );
   }
 }
@@ -36,6 +40,11 @@ DDP.contextTypes = {
 
 DDP.propTypes = {
   componentID: PropTypes.string.isRequired,
+  styles: PropTypes.object,
+};
+
+DDP.defaultProps = {
+  styles: {},
 };
 
 export default DDP;

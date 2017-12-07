@@ -25,7 +25,11 @@ export class DDH1 extends React.Component {
 
   render() {
     return (
-      <h1>{this.state.text}</h1>
+      <h1
+        style={this.props.styles}
+      >
+        {this.state.text}
+      </h1>
     );
   }
 }
@@ -36,6 +40,11 @@ DDH1.contextTypes = {
 
 DDH1.propTypes = {
   componentID: PropTypes.string.isRequired,
+  styles: PropTypes.object,
+};
+
+DDH1.defaultProps = {
+  styles: {},
 };
 
 export default DDH1;
