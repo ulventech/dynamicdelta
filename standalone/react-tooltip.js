@@ -2172,7 +2172,8 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (DDH1.__proto__ || Object.getPrototypeOf(DDH1)).call(this, props));
 
     _this.state = {
-      text: ''
+      text: '',
+      loading: true
     };
     return _this;
   }
@@ -2186,9 +2187,13 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
+          loading: false,
           text: resp.text || ' '
         });
       }).catch(function (error) {
+        _this2.setState({
+          loading: false
+        });
         console.error('DDP ERROR:', error);
       });
     }
@@ -2198,9 +2203,10 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
       return _react2.default.createElement(
         'h1',
         {
-          style: this.props.styles
+          style: this.props.styles,
+          className: this.props.classes
         },
-        this.state.text
+        this.state.loading ? this.props.loadingText : this.state.text
       );
     }
   }]);
@@ -2214,11 +2220,15 @@ DDH1.contextTypes = {
 
 DDH1.propTypes = {
   componentID: _propTypes2.default.string.isRequired,
-  styles: _propTypes2.default.object
+  loadingText: _propTypes2.default.string,
+  styles: _propTypes2.default.object,
+  classes: _propTypes2.default.string
 };
 
 DDH1.defaultProps = {
-  styles: {}
+  loadingText: '&nbsp;',
+  styles: {},
+  classes: ''
 };
 
 exports.default = DDH1;
@@ -2264,7 +2274,8 @@ var DDP = exports.DDP = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (DDP.__proto__ || Object.getPrototypeOf(DDP)).call(this, props));
 
     _this.state = {
-      text: ''
+      text: '',
+      loading: true
     };
     return _this;
   }
@@ -2278,9 +2289,13 @@ var DDP = exports.DDP = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState({
+          loading: false,
           text: resp.text || ' '
         });
       }).catch(function (error) {
+        _this2.setState({
+          loading: false
+        });
         console.error('DDP ERROR:', error);
       });
     }
@@ -2290,9 +2305,10 @@ var DDP = exports.DDP = function (_React$Component) {
       return _react2.default.createElement(
         'p',
         {
-          style: this.props.styles
+          style: this.props.styles,
+          className: this.props.classes
         },
-        this.state.text
+        this.state.loading ? this.props.loadingText : this.state.text
       );
     }
   }]);
@@ -2306,11 +2322,15 @@ DDP.contextTypes = {
 
 DDP.propTypes = {
   componentID: _propTypes2.default.string.isRequired,
-  styles: _propTypes2.default.object
+  loadingText: _propTypes2.default.string,
+  styles: _propTypes2.default.object,
+  classes: _propTypes2.default.string
 };
 
 DDP.defaultProps = {
-  styles: {}
+  loadingText: '&nbsp;',
+  styles: {},
+  classes: ''
 };
 
 exports.default = DDP;
