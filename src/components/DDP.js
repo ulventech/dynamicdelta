@@ -7,6 +7,7 @@ export class DDP extends React.Component {
     super(props);
     this.state = {
       text: '',
+      loading: true,
     };
   }
 
@@ -15,10 +16,14 @@ export class DDP extends React.Component {
       .then(response => response.json())
       .then((resp) => {
         this.setState({
+          loading: false,
           text: resp.text || ' ',
         });
       })
       .catch((error) => {
+        this.setState({
+          loading: false,
+        });
         console.error('DDP ERROR:', error);
       });
   }
@@ -27,8 +32,9 @@ export class DDP extends React.Component {
     return (
       <p
         style={this.props.styles}
+        className={this.props.classes}
       >
-        {this.state.text}
+        {this.state.loading ? this.props.loadingText : this.state.text}
       </p>
     );
   }
@@ -40,11 +46,15 @@ DDP.contextTypes = {
 
 DDP.propTypes = {
   componentID: PropTypes.string.isRequired,
+  loadingText: PropTypes.string,
   styles: PropTypes.object,
+  classes: PropTypes.string,
 };
 
 DDP.defaultProps = {
+  loadingText: '&nbsp;',
   styles: {},
+  classes: '',
 };
 
 export default DDP;
