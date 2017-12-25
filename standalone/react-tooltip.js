@@ -2226,7 +2226,7 @@ DDH1.propTypes = {
 };
 
 DDH1.defaultProps = {
-  loadingText: '&nbsp;',
+  loadingText: '\xA0',
   styles: {},
   classes: ''
 };
@@ -2328,7 +2328,7 @@ DDP.propTypes = {
 };
 
 DDP.defaultProps = {
-  loadingText: '&nbsp;',
+  loadingText: '\xA0',
   styles: {},
   classes: ''
 };

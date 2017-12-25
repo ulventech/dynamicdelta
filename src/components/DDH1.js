@@ -52,7 +52,7 @@ DDH1.propTypes = {
 };
 
 DDH1.defaultProps = {
-  loadingText: '&nbsp;',
+  loadingText: '\u00A0',
   styles: {},
   classes: '',
 };

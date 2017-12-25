@@ -52,7 +52,7 @@ DDP.propTypes = {
 };
 
 DDP.defaultProps = {
-  loadingText: '&nbsp;',
+  loadingText: '\u00A0',
   styles: {},
   classes: '',
 };
