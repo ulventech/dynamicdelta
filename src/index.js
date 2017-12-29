@@ -1,11 +1,11 @@
 'use strict';
 
 import DynamicDelta from './core/DynamicDelta';
-import DDP from './components/DDP';
-import DDH1 from './components/DDH1';
+import P from './components/P';
+import H1 from './components/H1';
 
 module.exports = {
   DynamicDelta,
-  DDP,
-  DDH1,
+  P,
+  H1,
 };

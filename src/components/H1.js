@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
 
-export class DDH1 extends React.Component {
+export class H1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,21 +40,21 @@ export class DDH1 extends React.Component {
   }
 }
 
-DDH1.contextTypes = {
+H1.contextTypes = {
   projectID: PropTypes.string.isRequired,
 };
 
-DDH1.propTypes = {
+H1.propTypes = {
   componentID: PropTypes.string.isRequired,
   loadingText: PropTypes.string,
   styles: PropTypes.object,
   classes: PropTypes.string,
 };
 
-DDH1.defaultProps = {
+H1.defaultProps = {
   loadingText: '\u00A0',
   styles: {},
   classes: '',
 };
 
-export default DDH1;
+export default H1;

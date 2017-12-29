@@ -2139,7 +2139,7 @@ module.exports = ReactPropTypesSecret;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DDH1 = undefined;
+exports.H1 = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2163,13 +2163,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DDH1 = exports.DDH1 = function (_React$Component) {
-  _inherits(DDH1, _React$Component);
+var H1 = exports.H1 = function (_React$Component) {
+  _inherits(H1, _React$Component);
 
-  function DDH1(props) {
-    _classCallCheck(this, DDH1);
+  function H1(props) {
+    _classCallCheck(this, H1);
 
-    var _this = _possibleConstructorReturn(this, (DDH1.__proto__ || Object.getPrototypeOf(DDH1)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (H1.__proto__ || Object.getPrototypeOf(H1)).call(this, props));
 
     _this.state = {
       text: '',
@@ -2178,7 +2178,7 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
     return _this;
   }
 
-  _createClass(DDH1, [{
+  _createClass(H1, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
@@ -2211,27 +2211,27 @@ var DDH1 = exports.DDH1 = function (_React$Component) {
     }
   }]);
 
-  return DDH1;
+  return H1;
 }(_react2.default.Component);
 
-DDH1.contextTypes = {
+H1.contextTypes = {
   projectID: _propTypes2.default.string.isRequired
 };
 
-DDH1.propTypes = {
+H1.propTypes = {
   componentID: _propTypes2.default.string.isRequired,
   loadingText: _propTypes2.default.string,
   styles: _propTypes2.default.object,
   classes: _propTypes2.default.string
 };
 
-DDH1.defaultProps = {
+H1.defaultProps = {
   loadingText: '\xA0',
   styles: {},
   classes: ''
 };
 
-exports.default = DDH1;
+exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../constant":50,"prop-types":46}],49:[function(require,module,exports){
@@ -2241,7 +2241,7 @@ exports.default = DDH1;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DDP = undefined;
+exports.P = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2265,13 +2265,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DDP = exports.DDP = function (_React$Component) {
-  _inherits(DDP, _React$Component);
+var P = exports.P = function (_React$Component) {
+  _inherits(P, _React$Component);
 
-  function DDP(props) {
-    _classCallCheck(this, DDP);
+  function P(props) {
+    _classCallCheck(this, P);
 
-    var _this = _possibleConstructorReturn(this, (DDP.__proto__ || Object.getPrototypeOf(DDP)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (P.__proto__ || Object.getPrototypeOf(P)).call(this, props));
 
     _this.state = {
       text: '',
@@ -2280,7 +2280,7 @@ var DDP = exports.DDP = function (_React$Component) {
     return _this;
   }
 
-  _createClass(DDP, [{
+  _createClass(P, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
@@ -2313,27 +2313,27 @@ var DDP = exports.DDP = function (_React$Component) {
     }
   }]);
 
-  return DDP;
+  return P;
 }(_react2.default.Component);
 
-DDP.contextTypes = {
+P.contextTypes = {
   projectID: _propTypes2.default.string.isRequired
 };
 
-DDP.propTypes = {
+P.propTypes = {
   componentID: _propTypes2.default.string.isRequired,
   loadingText: _propTypes2.default.string,
   styles: _propTypes2.default.object,
   classes: _propTypes2.default.string
 };
 
-DDP.defaultProps = {
+P.defaultProps = {
   loadingText: '\xA0',
   styles: {},
   classes: ''
 };
 
-exports.default = DDP;
+exports.default = P;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../constant":50,"prop-types":46}],50:[function(require,module,exports){
@@ -2432,21 +2432,21 @@ var _DynamicDelta = require('./core/DynamicDelta');
 
 var _DynamicDelta2 = _interopRequireDefault(_DynamicDelta);
 
-var _DDP = require('./components/DDP');
+var _P = require('./components/P');
 
-var _DDP2 = _interopRequireDefault(_DDP);
+var _P2 = _interopRequireDefault(_P);
 
-var _DDH = require('./components/DDH1');
+var _H = require('./components/H1');
 
-var _DDH2 = _interopRequireDefault(_DDH);
+var _H2 = _interopRequireDefault(_H);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
   DynamicDelta: _DynamicDelta2.default,
-  DDP: _DDP2.default,
-  DDH1: _DDH2.default
+  P: _P2.default,
+  H1: _H2.default
 };
 
-},{"./components/DDH1":48,"./components/DDP":49,"./core/DynamicDelta":51}]},{},[52])(52)
+},{"./components/H1":48,"./components/P":49,"./core/DynamicDelta":51}]},{},[52])(52)
 });

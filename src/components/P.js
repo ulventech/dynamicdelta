@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
 
-export class DDP extends React.Component {
+export class P extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,21 +40,21 @@ export class DDP extends React.Component {
   }
 }
 
-DDP.contextTypes = {
+P.contextTypes = {
   projectID: PropTypes.string.isRequired,
 };
 
-DDP.propTypes = {
+P.propTypes = {
   componentID: PropTypes.string.isRequired,
   loadingText: PropTypes.string,
   styles: PropTypes.object,
   classes: PropTypes.string,
 };
 
-DDP.defaultProps = {
+P.defaultProps = {
   loadingText: '\u00A0',
   styles: {},
   classes: '',
 };
 
-export default DDP;
+export default P;
