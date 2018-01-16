@@ -1,6 +1,6 @@
 {
   "name": "dynamicdelta",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "Dynamic components for use with www.dynamicdelta.com",
   "main": "dist/index.js",
   "repository": "https://github.com/ulventech/dynamicdelta.git",
