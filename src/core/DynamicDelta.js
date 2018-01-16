@@ -11,7 +11,7 @@ export class DynamicDelta extends React.Component {
   }
 
   render() {
-    return (
+    return (      
       <div>
         {this.props.children}
       </div>
