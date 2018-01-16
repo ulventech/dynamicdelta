@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
-
+import formatText from '../utils/index';
 export class P extends React.Component {
   constructor(props) {
     super(props);
@@ -28,14 +28,15 @@ export class P extends React.Component {
       });
   }
 
-  render() {    
+  render() { 
+    let text = formatText(this.state.text)   
     return (
       <p
         style={this.props.styles}
         className={this.props.classes}
       >
       
-        {this.state.loading ? this.props.loadingText : this.state.text}
+        {this.state.loading ? this.props.loadingText : text}
       </p>
     );
   }

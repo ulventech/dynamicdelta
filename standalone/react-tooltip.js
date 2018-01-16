@@ -2257,6 +2257,10 @@ var _constant = require('../constant');
 
 var _constant2 = _interopRequireDefault(_constant);
 
+var _index = require('../utils/index');
+
+var _index2 = _interopRequireDefault(_index);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2302,13 +2306,14 @@ var P = exports.P = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var text = (0, _index2.default)(this.state.text);
       return _react2.default.createElement(
         'p',
         {
           style: this.props.styles,
           className: this.props.classes
         },
-        this.state.loading ? this.props.loadingText : this.state.text
+        this.state.loading ? this.props.loadingText : text
       );
     }
   }]);
@@ -2336,7 +2341,7 @@ P.defaultProps = {
 exports.default = P;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":50,"prop-types":46}],50:[function(require,module,exports){
+},{"../constant":50,"../utils/index":53,"prop-types":46}],50:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2448,5 +2453,22 @@ module.exports = {
   H1: _H2.default
 };
 
-},{"./components/H1":48,"./components/P":49,"./core/DynamicDelta":51}]},{},[52])(52)
+},{"./components/H1":48,"./components/P":49,"./core/DynamicDelta":51}],53:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    formatText: function formatText(text) {
+        var newStr = text.replace(/(?:\r\n|\r|\n)/g, '<br />');
+        var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+        newStr = newStr.replace(expression, "<a href='$1'>$1</a>");
+        newStr = newStr.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+        newStr = newStr.replace(/~~(.*?)~~/g, "<i>$1</i>");
+        return newStr;
+    }
+};
+
+},{}]},{},[52])(52)
 });
