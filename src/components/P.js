@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
-import formatText from '../utils';
 
 export class P extends React.Component {
   constructor(props) {
@@ -29,17 +28,14 @@ export class P extends React.Component {
       });
   }
 
-  render() {
-    console.log('hey');
-    
-    let text = formatText(this.state.text);
+  render() {    
     return (
       <p
         style={this.props.styles}
         className={this.props.classes}
       >
       
-        {this.state.loading ? this.props.loadingText : text}
+        {this.state.loading ? this.props.loadingText : this.state.text}
       </p>
     );
   }
