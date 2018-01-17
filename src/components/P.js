@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
 export class P extends React.Component {
@@ -45,7 +46,7 @@ export class P extends React.Component {
         className={this.props.classes}
       >
       
-        {this.state.loading ? this.props.loadingText : text}
+        {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </p>
     );
   }

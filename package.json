@@ -1,6 +1,6 @@
 {
   "name": "dynamicdelta",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "Dynamic components for use with www.dynamicdelta.com",
   "main": "dist/index.js",
   "repository": "https://github.com/ulventech/dynamicdelta.git",
@@ -11,7 +11,8 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "react-html-parser": "^2.0.2"
   },
   "standard": {
     "parser": "babel-eslint",
