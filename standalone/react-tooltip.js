@@ -12269,6 +12269,10 @@ var _react = (typeof window !== "undefined" ? window['React'] : typeof global !=
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -12292,6 +12296,11 @@ var H1 = exports.H1 = function (_React$Component) {
     _classCallCheck(this, H1);
 
     var _this = _possibleConstructorReturn(this, (H1.__proto__ || Object.getPrototypeOf(H1)).call(this, props));
+
+    _this.formatText = function (text) {
+      var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+      return newStr;
+    };
 
     _this.state = {
       text: '',
@@ -12322,13 +12331,14 @@ var H1 = exports.H1 = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var text = this.formatText(this.state.text);
       return _react2.default.createElement(
         'h1',
         {
           style: this.props.styles,
           className: this.props.classes
         },
-        this.state.loading ? this.props.loadingText : this.state.text
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
       );
     }
   }]);
@@ -12356,7 +12366,7 @@ H1.defaultProps = {
 exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":128,"prop-types":87}],127:[function(require,module,exports){
+},{"../constant":128,"prop-types":87,"react-html-parser":99}],127:[function(require,module,exports){
 (function (global){
 'use strict';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
 
@@ -10,6 +11,11 @@ export class H1 extends React.Component {
       loading: true,
     };
   }
+
+  formatText = (text) => {
+    let newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+    return newStr;
+}
 
   componentDidMount() {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
@@ -29,12 +35,13 @@ export class H1 extends React.Component {
   }
 
   render() {
+    let text = this.formatText(this.state.text)
     return (
       <h1
         style={this.props.styles}
         className={this.props.classes}
       >
-        {this.state.loading ? this.props.loadingText : this.state.text}
+        {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </h1>
     );
   }
