@@ -12411,10 +12411,21 @@ var P = exports.P = function (_React$Component) {
 
     _this.formatText = function (text) {
       var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-      var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-      newStr = newStr.replace(expression, "<a href='$1$2'>$1$2</a>");
       newStr = newStr.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
       newStr = newStr.replace(/~~(.*?)~~/g, "<i>$1</i>");
+
+      //URLs starting with http://, https://, or ftp://
+      var expression = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+      newStr = newStr.replace(expression, '<a href="$1" target="_blank">$1</a>');
+
+      //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+      var expression2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+      newStr = newStr.replace(expression2, '$1<a href="http://$2" target="_blank">$2</a>');
+
+      //Change email addresses to mailto:: links.
+      var expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+      newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
+
       return newStr;
     };
 
