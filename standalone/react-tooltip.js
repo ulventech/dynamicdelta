@@ -2274,23 +2274,11 @@ var P = exports.P = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (P.__proto__ || Object.getPrototypeOf(P)).call(this, props));
 
     _this.formatText = function (text) {
-      var newStr = text.replace(/(?:\r\n|\r|\n)/g, _react2.default.createElement('br', null));
+      var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
       var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-      newStr = newStr.replace(expression, _react2.default.createElement(
-        'a',
-        { href: '$1' },
-        '$1'
-      ));
-      newStr = newStr.replace(/\*\*(.*?)\*\*/g, _react2.default.createElement(
-        'b',
-        null,
-        '$1'
-      ));
-      newStr = newStr.replace(/~~(.*?)~~/g, _react2.default.createElement(
-        'i',
-        null,
-        '$1'
-      ));
+      newStr = newStr.replace(expression, "<a href='$1'>$1</a>");
+      newStr = newStr.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+      newStr = newStr.replace(/~~(.*?)~~/g, "<i>$1</i>");
       return newStr;
     };
 
