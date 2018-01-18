@@ -12414,6 +12414,10 @@ var P = exports.P = function (_React$Component) {
       newStr = newStr.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
       newStr = newStr.replace(/~~(.*?)~~/g, "<i>$1</i>");
 
+      //Format for Markdown
+      newStr = newStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2">$1</a>');
+      newStr = newStr.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, ' <a href="$1">$1</a>');
+
       //URLs starting with http://, https://, or ftp://
       var expression = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
       newStr = newStr.replace(expression, '<a href="$1" target="_blank">$1</a>');
