@@ -21,7 +21,7 @@ export class P extends React.Component {
     newStr = newStr.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1">$1</a>');     
 
     //Format for Markdown(Internal Links)
-    newStr = newStr.replace(/\[(.+?)\]\/(A-Za-z0-9)/g, '<a href="/#/$2">$1</a>');
+    newStr = newStr.replace(/\[(.+?)\]\((\/?.+?)\)/g, '<a href="/#/$2">$1</a>');
 
     
     // //URLs starting with http://, https://, or ftp://
