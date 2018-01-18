@@ -12430,8 +12430,8 @@ var P = exports.P = function (_React$Component) {
       // newStr = newStr.replace(expression2, '$1<a href="http://$2" target="_blank">$2</a>');
 
       // //Change email addresses to mailto:: links.
-      // const expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
-      // newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
+      var expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+      newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
 
       return newStr;
     };
