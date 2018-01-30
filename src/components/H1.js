@@ -7,6 +7,8 @@ export class H1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      fontSize: '',
+      color: '',
       text: '',
       loading: true,
     };
@@ -23,6 +25,8 @@ export class H1 extends React.Component {
       .then((resp) => {
         this.setState({
           loading: false,
+          fontSize: resp.fontSize + 'px',
+          color: resp.color,
           text: resp.text || ' ',
         });
       })
@@ -38,7 +42,7 @@ export class H1 extends React.Component {
     let text = this.formatText(this.state.text)
     return (
       <h1
-        style={this.props.styles}
+        style={[this.props.styles, color=this.state.color, fontSize=this.state.fontSize]}
         className={this.props.classes}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
