@@ -42,7 +42,7 @@ export class H1 extends React.Component {
     let text = this.formatText(this.state.text)
     return (
       <h1
-        style={[this.props.styles, color=this.state.color, fontSize=this.state.fontSize]}
+        style={this.props.styles}
         className={this.props.classes}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}

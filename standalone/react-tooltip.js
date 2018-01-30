@@ -12303,6 +12303,8 @@ var H1 = exports.H1 = function (_React$Component) {
     };
 
     _this.state = {
+      fontSize: '',
+      color: '',
       text: '',
       loading: true
     };
@@ -12319,6 +12321,8 @@ var H1 = exports.H1 = function (_React$Component) {
       }).then(function (resp) {
         _this2.setState({
           loading: false,
+          fontSize: resp.fontSize + 'px',
+          color: resp.color,
           text: resp.text || ' '
         });
       }).catch(function (error) {
@@ -12420,14 +12424,6 @@ var P = exports.P = function (_React$Component) {
 
       //Format for Markdown(Internal Links)
       newStr = newStr.replace(/\[(.+?)\]\((\/?.+?)\)/g, '<a href="/#$2">$1</a>');
-
-      // //URLs starting with http://, https://, or ftp://
-      // const expression = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-      // newStr = newStr.replace(expression, '<a href="$1" target="_blank">$1</a>');
-
-      // //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
-      // const expression2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-      // newStr = newStr.replace(expression2, '$1<a href="http://$2" target="_blank">$2</a>');
 
       // //Change email addresses to mailto:: links.
       var expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
