@@ -12325,7 +12325,7 @@ var H1 = exports.H1 = function (_React$Component) {
       }).then(function (resp) {
         _this2.setState({
           loading: false,
-          fontSize: resp.fontSize,
+          fontSize: resp.fontSize + "px",
           color: resp.color,
           text: resp.text || ' '
         });

@@ -27,7 +27,7 @@ export class H1 extends React.Component {
       .then((resp) => {
         this.setState({
           loading: false,
-          fontSize: resp.fontSize,
+          fontSize: resp.fontSize + "px",
           color: resp.color,
           text: resp.text || ' ',
         });
