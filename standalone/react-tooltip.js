@@ -12281,6 +12281,10 @@ var _constant = require('../constant');
 
 var _constant2 = _interopRequireDefault(_constant);
 
+var _isEmpty = require('lodash/isEmpty');
+
+var _isEmpty2 = _interopRequireDefault(_isEmpty);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12321,7 +12325,7 @@ var H1 = exports.H1 = function (_React$Component) {
       }).then(function (resp) {
         _this2.setState({
           loading: false,
-          fontSize: resp.fontSize + 'px',
+          fontSize: resp.fontSize,
           color: resp.color,
           text: resp.text || ' '
         });
@@ -12337,12 +12341,23 @@ var H1 = exports.H1 = function (_React$Component) {
     value: function render() {
       var text = this.formatText(this.state.text);
       return _react2.default.createElement(
-        'h1',
-        {
-          style: this.props.styles,
-          className: this.props.classes
-        },
-        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+        'div',
+        null,
+        !(0, _isEmpty2.default)(this.state.color) && !(0, _isEmpty2.default)(this.state.fontSize) ? _react2.default.createElement(
+          'h1',
+          {
+            style: { color: this.state.color, fontSize: this.state.fontSize },
+            className: this.props.classes
+          },
+          this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+        ) : _react2.default.createElement(
+          'h1',
+          {
+            style: this.props.styles,
+            className: this.props.classes
+          },
+          this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+        )
       );
     }
   }]);
@@ -12370,7 +12385,7 @@ H1.defaultProps = {
 exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":128,"prop-types":87,"react-html-parser":99}],127:[function(require,module,exports){
+},{"../constant":128,"lodash/isEmpty":74,"prop-types":87,"react-html-parser":99}],127:[function(require,module,exports){
 (function (global){
 'use strict';
 
