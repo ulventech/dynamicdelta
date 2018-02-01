@@ -12309,6 +12309,10 @@ var _isNull = require('lodash/isNull');
 
 var _isNull2 = _interopRequireDefault(_isNull);
 
+var _isEmpty = require('lodash/isEmpty');
+
+var _isEmpty2 = _interopRequireDefault(_isEmpty);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12359,6 +12363,12 @@ var H1 = exports.H1 = function (_React$Component) {
         });
         console.error('DDP ERROR:', error);
       });
+      if (!(0, _isEmpty2.default)(this.props.styles.color) || !(0, _isNull2.default)(this.props.styles.color)) {
+        this.props.styles.color = this.state.color;
+      }
+      if (!(0, _isEmpty2.default)(this.props.styles.fontSize) || !(0, _isNull2.default)(this.props.styles.fontSize)) {
+        this.props.styles.fontSize = this.state.fontSize;
+      }
     }
   }, {
     key: 'render',
@@ -12367,14 +12377,7 @@ var H1 = exports.H1 = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        !(0, _isNull2.default)(this.state.color) && !(0, _isNull2.default)(this.state.fontSize) ? _react2.default.createElement(
-          'h1',
-          {
-            style: { color: this.state.color, fontSize: this.state.fontSize },
-            className: this.props.classes
-          },
-          this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
-        ) : _react2.default.createElement(
+        _react2.default.createElement(
           'h1',
           {
             style: this.props.styles,
@@ -12406,10 +12409,10 @@ H1.defaultProps = {
   classes: ''
 };
 
-exports.default = H1;
+exports.default = Radium(H1);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":129,"lodash/isNull":77,"prop-types":88,"react-html-parser":100}],128:[function(require,module,exports){
+},{"../constant":129,"lodash/isEmpty":74,"lodash/isNull":77,"prop-types":88,"react-html-parser":100}],128:[function(require,module,exports){
 (function (global){
 'use strict';
 

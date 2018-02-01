@@ -3,6 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
 import isNull from 'lodash/isNull';
+import isEmpty from 'lodash/isEmpty';
 
 
 export class H1 extends React.Component {
@@ -38,27 +39,24 @@ export class H1 extends React.Component {
         });
         console.error('DDP ERROR:', error);
       });
+      if (!isEmpty(this.props.styles.color) || !isNull(this.props.styles.color)){
+      this.props.styles.color = this.state.color;
+      }
+      if (!isEmpty(this.props.styles.fontSize) || !isNull(this.props.styles.fontSize)){
+        this.props.styles.fontSize = this.state.fontSize;
+      }
   }
 
   render() {
     let text = this.formatText(this.state.text)
     return (
       <div>
-      {!isNull(this.state.color) && !isNull(this.state.fontSize) ? 
-      <h1
-        style={{ color: this.state.color, fontSize: this.state.fontSize}}
-        className={this.props.classes}
-      >
-        {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-      </h1> : (
         <h1
         style={this.props.styles}
         className={this.props.classes}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </h1>
-          )}
-      
       </div>
     );
   }
@@ -81,4 +79,4 @@ H1.defaultProps = {
   classes: '',
 };
 
-export default H1;
+export default Radium(H1);

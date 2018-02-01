@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 
+
 export class DynamicDelta extends React.Component {
   getChildContext() {
     if (isEmpty(this.props.projectID)) {
@@ -11,7 +12,7 @@ export class DynamicDelta extends React.Component {
   }
 
   render() {
-    return (      
+    return ( 
       <div>
         {this.props.children}
       </div>
