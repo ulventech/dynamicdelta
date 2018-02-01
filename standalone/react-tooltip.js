@@ -12371,7 +12371,6 @@ var H1 = exports.H1 = function (_React$Component) {
       });
       console.log(this.props.styles.color);
       console.log(this.props.styles);
-      console.log(this.props.styles[color]);
     }
   }, {
     key: 'render',

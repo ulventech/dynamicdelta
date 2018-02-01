@@ -47,7 +47,6 @@ export class H1 extends React.Component {
       });
       console.log(this.props.styles.color)
       console.log(this.props.styles)
-      console.log(this.props.styles[color])
   }
 
   render() {
