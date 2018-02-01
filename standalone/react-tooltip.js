@@ -12357,18 +12357,18 @@ var H1 = exports.H1 = function (_React$Component) {
           color: resp.color,
           text: resp.text || ' '
         });
+        if (!(0, _isEmpty2.default)(_this2.props.styles.color) || !(0, _isNull2.default)(_this2.props.styles.color)) {
+          _this2.props.styles.color = _this2.state.color;
+        }
+        if (!(0, _isEmpty2.default)(_this2.props.styles.fontSize) || !(0, _isNull2.default)(_this2.props.styles.fontSize)) {
+          _this2.props.styles.fontSize = _this2.state.fontSize;
+        }
       }).catch(function (error) {
         _this2.setState({
           loading: false
         });
         console.error('DDP ERROR:', error);
       });
-      if (!(0, _isEmpty2.default)(this.props.styles.color) || !(0, _isNull2.default)(this.props.styles.color)) {
-        this.props.styles.color = this.state.color;
-      }
-      if (!(0, _isEmpty2.default)(this.props.styles.fontSize) || !(0, _isNull2.default)(this.props.styles.fontSize)) {
-        this.props.styles.fontSize = this.state.fontSize;
-      }
     }
   }, {
     key: 'render',
