@@ -12409,7 +12409,7 @@ H1.defaultProps = {
   classes: ''
 };
 
-exports.default = Radium(H1);
+exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../constant":129,"lodash/isEmpty":74,"lodash/isNull":77,"prop-types":88,"react-html-parser":100}],128:[function(require,module,exports){

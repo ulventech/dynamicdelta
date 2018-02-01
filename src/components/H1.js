@@ -79,4 +79,4 @@ H1.defaultProps = {
   classes: '',
 };
 
-export default Radium(H1);
+export default H1;
