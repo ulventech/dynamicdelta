@@ -12357,10 +12357,10 @@ var H1 = exports.H1 = function (_React$Component) {
           color: resp.color,
           text: resp.text || ' '
         });
-        if (!(0, _isEmpty2.default)(_this2.props.styles.color) || !(0, _isNull2.default)(_this2.props.styles.color)) {
+        if (!(0, _isEmpty2.default)(_this2.state.color) || !(0, _isNull2.default)(_this2.state.color)) {
           _this2.props.styles[color] = _this2.state.color;
         }
-        if (!(0, _isEmpty2.default)(_this2.props.styles.fontSize) || !(0, _isNull2.default)(_this2.props.styles.fontSize)) {
+        if (!(0, _isEmpty2.default)(_this2.state.fontSize) || !(0, _isNull2.default)(_this2.state.fontSize)) {
           _this2.props.styles[fontSize] = _this2.state.fontSize;
         }
       }).catch(function (error) {
@@ -12369,8 +12369,6 @@ var H1 = exports.H1 = function (_React$Component) {
         });
         console.error('DDP ERROR:', error);
       });
-      console.log(this.props.styles.color);
-      console.log(this.props.styles);
     }
   }, {
     key: 'render',

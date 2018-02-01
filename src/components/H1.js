@@ -32,10 +32,10 @@ export class H1 extends React.Component {
           color: resp.color,
           text: resp.text || ' ',
         });
-        if (!isEmpty(this.props.styles.color) || !isNull(this.props.styles.color)){
+        if (!isEmpty(this.state.color) || !isNull(this.state.color)){
           this.props.styles[color] = this.state.color;
           }
-        if (!isEmpty(this.props.styles.fontSize) || !isNull(this.props.styles.fontSize)){
+        if (!isEmpty(this.state.fontSize) || !isNull(this.state.fontSize)){
             this.props.styles[fontSize] = this.state.fontSize;
           }
       })
@@ -45,8 +45,6 @@ export class H1 extends React.Component {
         });
         console.error('DDP ERROR:', error);
       });
-      console.log(this.props.styles.color)
-      console.log(this.props.styles)
   }
 
   render() {
