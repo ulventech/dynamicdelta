@@ -12369,7 +12369,9 @@ var H1 = exports.H1 = function (_React$Component) {
         });
         console.error('DDP ERROR:', error);
       });
+      console.log(this.props.styles.color);
       console.log(this.props.styles);
+      console.log(this.props.styles[color]);
     }
   }, {
     key: 'render',

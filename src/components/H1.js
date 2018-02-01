@@ -45,7 +45,9 @@ export class H1 extends React.Component {
         });
         console.error('DDP ERROR:', error);
       });
+      console.log(this.props.styles.color)
       console.log(this.props.styles)
+      console.log(this.props.styles[color])
   }
 
   render() {
