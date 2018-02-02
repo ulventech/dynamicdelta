@@ -12360,10 +12360,12 @@ var H1 = exports.H1 = function (_React$Component) {
           styles: _this2.props.styles
         });
         if (!(0, _isEmpty2.default)(_this2.state.color) || !(0, _isNull2.default)(_this2.state.color)) {
-          _this2.state.styles.color = _this2.state.color;
+          var styles = _this2.state.styles;
+          styles[color] = _this2.state.color, _this2.setState({ styles: styles });
         }
         if (!(0, _isEmpty2.default)(_this2.state.fontSize) || !(0, _isNull2.default)(_this2.state.fontSize)) {
-          _this2.state.styles.fontSize = _this2.state.fontSize;
+          var _styles = _this2.state.styles;
+          _styles[fontSize] = _this2.state.fontSize, _this2.setState({ styles: _styles });
         }
       }).catch(function (error) {
         _this2.setState({

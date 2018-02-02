@@ -35,10 +35,14 @@ export class H1 extends React.Component {
           styles: this.props.styles,
         });
         if (!isEmpty(this.state.color) || !isNull(this.state.color)){
-          this.state.styles.color = this.state.color;
+          const styles = this.state.styles;
+          styles[color] = this.state.color,
+          this.setState({styles})
           }
         if (!isEmpty(this.state.fontSize) || !isNull(this.state.fontSize)){
-          this.state.styles.fontSize = this.state.fontSize;
+          const styles = this.state.styles;
+          styles[fontSize] = this.state.fontSize,
+          this.setState({styles})
           }
       })
       .catch((error) => {
