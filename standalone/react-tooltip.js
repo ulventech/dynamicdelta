@@ -12355,13 +12355,14 @@ var H1 = exports.H1 = function (_React$Component) {
           loading: false,
           fontSize: resp.fontSize,
           color: resp.color,
-          text: resp.text || ' '
+          text: resp.text || ' ',
+          styles: _this2.props.styles
         });
         if (!(0, _isEmpty2.default)(_this2.state.color) || !(0, _isNull2.default)(_this2.state.color)) {
-          _this2.props.styles["color"] = _this2.state.color;
+          _this2.state.styles.color = _this2.state.color;
         }
         if (!(0, _isEmpty2.default)(_this2.state.fontSize) || !(0, _isNull2.default)(_this2.state.fontSize)) {
-          _this2.props.styles["fontSize"] = _this2.state.fontSize;
+          _this2.state.styles.fontSize = _this2.state.fontSize;
         }
       }).catch(function (error) {
         _this2.setState({
@@ -12380,7 +12381,7 @@ var H1 = exports.H1 = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           {
-            style: this.props.styles,
+            style: this.state.styles,
             className: this.props.classes
           },
           this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)

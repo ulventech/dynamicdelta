@@ -31,12 +31,13 @@ export class H1 extends React.Component {
           fontSize: resp.fontSize,
           color: resp.color,
           text: resp.text || ' ',
+          styles: this.props.styles,
         });
         if (!isEmpty(this.state.color) || !isNull(this.state.color)){
-          this.props.styles["color"] = this.state.color;
+          this.state.styles.color = this.state.color;
           }
         if (!isEmpty(this.state.fontSize) || !isNull(this.state.fontSize)){
-            this.props.styles["fontSize"] = this.state.fontSize;
+          this.state.styles.fontSize = this.state.fontSize;
           }
       })
       .catch((error) => {
@@ -52,7 +53,7 @@ export class H1 extends React.Component {
     return (
       <div>
         <h1
-        style={this.props.styles}
+        style={this.state.styles}
         className={this.props.classes}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
