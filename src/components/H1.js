@@ -13,6 +13,7 @@ export class H1 extends React.Component {
       fontSize: '',
       color: '',
       text: '',
+      styles: {},
       loading: true,
     };
   }

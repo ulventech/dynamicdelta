@@ -12338,6 +12338,7 @@ var H1 = exports.H1 = function (_React$Component) {
       fontSize: '',
       color: '',
       text: '',
+      styles: {},
       loading: true
     };
     return _this;
