@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ReactTooltip = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.DynamicDelta = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -12285,7 +12285,6 @@ function config (name) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.H1 = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -12321,7 +12320,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var H1 = exports.H1 = function (_React$Component) {
+var H1 = function (_React$Component) {
   _inherits(H1, _React$Component);
 
   function H1(props) {
@@ -12416,7 +12415,100 @@ H1.defaultProps = {
 exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":129,"lodash/isEmpty":74,"lodash/isNull":77,"prop-types":88,"react-html-parser":100}],128:[function(require,module,exports){
+},{"../constant":130,"lodash/isEmpty":74,"lodash/isNull":77,"prop-types":88,"react-html-parser":100}],128:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _isEmpty = require('lodash/isEmpty');
+
+var _isEmpty2 = _interopRequireDefault(_isEmpty);
+
+var _constant = require('../constant');
+
+var _constant2 = _interopRequireDefault(_constant);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Img = (_temp2 = _class = function (_React$Component) {
+  _inherits(Img, _React$Component);
+
+  function Img() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Img);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Img.__proto__ || Object.getPrototypeOf(Img)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      img: '',
+      alt: ''
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Img, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        console.log(resp);
+      }).catch(function (error) {
+        console.error('IMG ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return !(0, _isEmpty2.default)(this.state.img) ? _react2.default.createElement('img', {
+        src: this.state.img,
+        alt: this.state.alt,
+        style: this.props.styles,
+        className: this.props.classes
+      }) : null;
+    }
+  }]);
+
+  return Img;
+}(_react2.default.Component), _class.propTypes = {
+  componentID: _propTypes2.default.string.isRequired,
+  styles: _propTypes2.default.object,
+  classes: _propTypes2.default.string
+}, _class.defaultProps = {
+  styles: {},
+  classes: ''
+}, _class.contextTypes = {
+  projectID: _propTypes2.default.string.isRequired
+}, _temp2);
+exports.default = Img;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../constant":130,"lodash/isEmpty":74,"prop-types":88}],129:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -12542,7 +12634,7 @@ P.defaultProps = {
 exports.default = P;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":129,"prop-types":88,"react-html-parser":100}],129:[function(require,module,exports){
+},{"../constant":130,"prop-types":88,"react-html-parser":100}],130:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12558,7 +12650,7 @@ exports.default = {
   }
 };
 
-},{}],130:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -12631,7 +12723,7 @@ DynamicDelta.propTypes = {
 exports.default = DynamicDelta;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"lodash/isEmpty":74,"prop-types":88}],131:[function(require,module,exports){
+},{"lodash/isEmpty":74,"prop-types":88}],132:[function(require,module,exports){
 'use strict';
 
 var _DynamicDelta = require('./core/DynamicDelta');
@@ -12646,13 +12738,18 @@ var _H = require('./components/H1');
 
 var _H2 = _interopRequireDefault(_H);
 
+var _Img = require('./components/Img');
+
+var _Img2 = _interopRequireDefault(_Img);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
   DynamicDelta: _DynamicDelta2.default,
   P: _P2.default,
-  H1: _H2.default
+  H1: _H2.default,
+  Img: _Img2.default
 };
 
-},{"./components/H1":127,"./components/P":128,"./core/DynamicDelta":130}]},{},[131])(131)
+},{"./components/H1":127,"./components/Img":128,"./components/P":129,"./core/DynamicDelta":131}]},{},[132])(132)
 });
