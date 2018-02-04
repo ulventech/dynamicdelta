@@ -5,8 +5,7 @@ import CONSTANT from '../constant';
 import isNull from 'lodash/isNull';
 import isEmpty from 'lodash/isEmpty';
 
-
-export class H1 extends React.Component {
+class H1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +20,7 @@ export class H1 extends React.Component {
   formatText = (text) => {
     let newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
     return newStr;
-}
+  }
 
   componentDidMount() {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
