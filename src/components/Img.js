@@ -28,7 +28,9 @@ class Img extends React.Component {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
       .then(response => response.json())
       .then((resp) => {
-        console.log(resp);
+        this.setState({
+          ...resp,
+        });
       })
       .catch((error) => {
         console.error('IMG ERROR:', error);

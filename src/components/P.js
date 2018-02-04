@@ -2,13 +2,11 @@ import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import CONSTANT from '../constant';
-export class P extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-      loading: true,
-    };
+
+class P extends React.Component {
+  state = {
+    text: '',
+    loading: true,
   }
 
   formatText = (text) => {
@@ -18,7 +16,7 @@ export class P extends React.Component {
 
     //Format for Markdown(Extrnal Links)
     newStr = newStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" target="_blank">$1</a>');
-    newStr = newStr.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" target="_blank">$1</a>');     
+    newStr = newStr.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" target="_blank">$1</a>');
 
     //Format for Markdown(Internal Links)
     newStr = newStr.replace(/\[(.+?)\]\((\/?.+?)\)/g, '<a href="/#$2">$1</a>');
@@ -31,7 +29,7 @@ export class P extends React.Component {
 }
 
 
-  componentDidMount() { 
+  componentDidMount() {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
       .then(response => response.json())
       .then((resp) => {
@@ -48,14 +46,14 @@ export class P extends React.Component {
       });
   }
 
-  render() { 
-    let text = this.formatText(this.state.text)   
+  render() {
+    let text = this.formatText(this.state.text)
     return (
       <p
         style={this.props.styles}
         className={this.props.classes}
       >
-      
+
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </p>
     );

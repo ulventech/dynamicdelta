@@ -12323,24 +12323,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var H1 = function (_React$Component) {
   _inherits(H1, _React$Component);
 
-  function H1(props) {
+  function H1() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, H1);
 
-    var _this = _possibleConstructorReturn(this, (H1.__proto__ || Object.getPrototypeOf(H1)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.formatText = function (text) {
-      var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-      return newStr;
-    };
-
-    _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = H1.__proto__ || Object.getPrototypeOf(H1)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       fontSize: '',
       color: '',
       text: '',
       styles: {},
       loading: true
-    };
-    return _this;
+    }, _this.formatText = function (text) {
+      var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+      return newStr;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(H1, [{
@@ -12423,6 +12426,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp2;
@@ -12474,10 +12479,12 @@ var Img = (_temp2 = _class = function (_React$Component) {
   _createClass(Img, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        console.log(resp);
+        _this2.setState(_extends({}, resp));
       }).catch(function (error) {
         console.error('IMG ERROR:', error);
       });
@@ -12515,7 +12522,6 @@ exports.default = Img;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.P = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -12543,15 +12549,24 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var P = exports.P = function (_React$Component) {
+var P = function (_React$Component) {
   _inherits(P, _React$Component);
 
-  function P(props) {
+  function P() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, P);
 
-    var _this = _possibleConstructorReturn(this, (P.__proto__ || Object.getPrototypeOf(P)).call(this, props));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _this.formatText = function (text) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = P.__proto__ || Object.getPrototypeOf(P)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      loading: true
+    }, _this.formatText = function (text) {
       var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
       newStr = newStr.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
       newStr = newStr.replace(/~~(.*?)~~/g, "<i>$1</i>");
@@ -12568,13 +12583,7 @@ var P = exports.P = function (_React$Component) {
       newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
 
       return newStr;
-    };
-
-    _this.state = {
-      text: '',
-      loading: true
-    };
-    return _this;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(P, [{

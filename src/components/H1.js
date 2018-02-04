@@ -6,15 +6,12 @@ import isNull from 'lodash/isNull';
 import isEmpty from 'lodash/isEmpty';
 
 class H1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fontSize: '',
-      color: '',
-      text: '',
-      styles: {},
-      loading: true,
-    };
+  state = {
+    fontSize: '',
+    color: '',
+    text: '',
+    styles: {},
+    loading: true,
   }
 
   formatText = (text) => {
@@ -57,11 +54,11 @@ class H1 extends React.Component {
     return (
       <div>
         <h1
-        style={this.state.styles}
-        className={this.props.classes}
-      >
-        {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-      </h1>
+          style={this.state.styles}
+          className={this.props.classes}
+        >
+          {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
+        </h1>
       </div>
     );
   }
