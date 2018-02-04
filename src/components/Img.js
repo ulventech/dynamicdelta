@@ -39,7 +39,7 @@ class Img extends React.Component {
     return (
       !isEmpty(this.state.img) ? (
         <img
-          src={this.state.img}
+          src={`${CONSTANT.STATIC_API}${this.state.img}`}
           alt={this.state.alt}
           style={this.props.styles}
           className={this.props.classes}

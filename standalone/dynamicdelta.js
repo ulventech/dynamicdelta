@@ -12486,7 +12486,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
     key: 'render',
     value: function render() {
       return !(0, _isEmpty2.default)(this.state.img) ? _react2.default.createElement('img', {
-        src: this.state.img,
+        src: '' + _constant2.default.STATIC_API + this.state.img,
         alt: this.state.alt,
         style: this.props.styles,
         className: this.props.classes
@@ -12647,7 +12647,8 @@ exports.default = {
       method: 'GET',
       mode: 'no-cors'
     }
-  }
+  },
+  STATIC_API: 'https://static.dynamicdelta.com'
 };
 
 },{}],131:[function(require,module,exports){

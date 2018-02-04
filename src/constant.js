@@ -5,5 +5,6 @@ export default {
       method: 'GET',
       mode: 'no-cors'
     }
-  }
+  },
+  STATIC_API: 'https://static.dynamicdelta.com'
 }
