@@ -26,6 +26,7 @@ class H1 extends React.Component {
         this.setState({
           ...resp,
         });
+        /*
         if (isEmpty(this.state.styles.color) && !isEmpty(this.props.styles.color)) {
           this.setState({
             styles: {
@@ -34,6 +35,7 @@ class H1 extends React.Component {
             }
           })
         }
+        */
       })
       .catch((error) => {
         this.setState({

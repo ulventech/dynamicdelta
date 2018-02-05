@@ -12357,13 +12357,16 @@ var H1 = function (_React$Component) {
         return response.json();
       }).then(function (resp) {
         _this2.setState(_extends({}, resp));
-        if ((0, _isEmpty2.default)(_this2.state.styles.color) && !(0, _isEmpty2.default)(_this2.props.styles.color)) {
-          _this2.setState({
-            styles: _extends({}, _this2.state.styles, {
-              color: _this2.props.styles.color
-            })
-          });
+        /*
+        if (isEmpty(this.state.styles.color) && !isEmpty(this.props.styles.color)) {
+          this.setState({
+            styles: {
+              ...this.state.styles,
+              color: this.props.styles.color,
+            }
+          })
         }
+        */
       }).catch(function (error) {
         _this2.setState({
           loading: false
