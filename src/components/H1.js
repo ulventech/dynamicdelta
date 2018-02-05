@@ -6,6 +6,23 @@ import isNull from 'lodash/isNull';
 import isEmpty from 'lodash/isEmpty';
 
 class H1 extends React.Component {
+  static contextTypes = {
+    projectID: PropTypes.string.isRequired,
+  }
+
+  static propTypes = {
+    componentID: PropTypes.string.isRequired,
+    loadingText: PropTypes.string,
+    styles: PropTypes.object,
+    classes: PropTypes.string,
+  }
+
+  static defaultProps = {
+    loadingText: '\u00A0',
+    styles: {},
+    classes: '',
+  }
+
   state = {
     fontSize: '',
     color: '',
@@ -25,6 +42,7 @@ class H1 extends React.Component {
       .then((resp) => {
         this.setState({
           ...resp,
+          loading: false,
         });
         /*
         if (isEmpty(this.state.styles.color) && !isEmpty(this.props.styles.color)) {
@@ -50,7 +68,7 @@ class H1 extends React.Component {
     return (
       <div>
         <h1
-          style={this.state.styles}
+          style={this.props.styles}
           className={this.props.classes}
         >
           {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
@@ -59,22 +77,5 @@ class H1 extends React.Component {
     );
   }
 }
-
-H1.contextTypes = {
-  projectID: PropTypes.string.isRequired,
-};
-
-H1.propTypes = {
-  componentID: PropTypes.string.isRequired,
-  loadingText: PropTypes.string,
-  styles: PropTypes.object,
-  classes: PropTypes.string,
-};
-
-H1.defaultProps = {
-  loadingText: '\u00A0',
-  styles: {},
-  classes: '',
-};
 
 export default H1;

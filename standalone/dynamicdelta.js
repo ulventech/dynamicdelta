@@ -12290,6 +12290,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
 var _react2 = _interopRequireDefault(_react);
@@ -12322,7 +12324,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var H1 = function (_React$Component) {
+var H1 = (_temp2 = _class = function (_React$Component) {
   _inherits(H1, _React$Component);
 
   function H1() {
@@ -12356,7 +12358,9 @@ var H1 = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        _this2.setState(_extends({}, resp));
+        _this2.setState(_extends({}, resp, {
+          loading: false
+        }));
         /*
         if (isEmpty(this.state.styles.color) && !isEmpty(this.props.styles.color)) {
           this.setState({
@@ -12384,7 +12388,7 @@ var H1 = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           {
-            style: this.state.styles,
+            style: this.props.styles,
             className: this.props.classes
           },
           this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
@@ -12394,25 +12398,18 @@ var H1 = function (_React$Component) {
   }]);
 
   return H1;
-}(_react2.default.Component);
-
-H1.contextTypes = {
+}(_react2.default.Component), _class.contextTypes = {
   projectID: _propTypes2.default.string.isRequired
-};
-
-H1.propTypes = {
+}, _class.propTypes = {
   componentID: _propTypes2.default.string.isRequired,
   loadingText: _propTypes2.default.string,
   styles: _propTypes2.default.object,
   classes: _propTypes2.default.string
-};
-
-H1.defaultProps = {
+}, _class.defaultProps = {
   loadingText: '\xA0',
   styles: {},
   classes: ''
-};
-
+}, _temp2);
 exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
@@ -12594,7 +12591,9 @@ var P = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        _this2.setState(_extends({}, resp));
+        _this2.setState(_extends({
+          loading: false
+        }, resp));
       }).catch(function (error) {
         _this2.setState({
           loading: false

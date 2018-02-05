@@ -33,6 +33,7 @@ componentDidMount() {
     .then(response => response.json())
     .then((resp) => {
       this.setState({
+        loading: false,
         ...resp,
       });
     })
