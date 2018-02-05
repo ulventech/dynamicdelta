@@ -24,28 +24,22 @@ class H1 extends React.Component {
       .then(response => response.json())
       .then((resp) => {
         this.setState({
-          loading: false,
-          fontSize: resp.fontSize,
-          color: resp.color,
-          text: resp.text || ' ',
-          styles: this.props.styles,
+          ...resp,
         });
-        if (!isEmpty(this.state.color) || !isNull(this.state.color)){
-          const styles = this.state.styles;
-          styles[color] = this.state.color,
-          this.setState({styles})
-          }
-        if (!isEmpty(this.state.fontSize) || !isNull(this.state.fontSize)){
-          const styles = this.state.styles;
-          styles[fontSize] = this.state.fontSize,
-          this.setState({styles})
-          }
+        if (isEmpty(this.state.styles.color) && !isEmpty(this.props.styles.color)) {
+          this.setState({
+            styles: {
+              ...this.state.styles,
+              color: this.props.styles.color,
+            }
+          })
+        }
       })
       .catch((error) => {
         this.setState({
           loading: false,
         });
-        console.error('DDP ERROR:', error);
+        console.error('DynamicDelta [H1] ERROR:', error);
       });
   }
 

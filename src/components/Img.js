@@ -33,7 +33,7 @@ class Img extends React.Component {
         });
       })
       .catch((error) => {
-        console.error('IMG ERROR:', error);
+        console.error('DynamicDelta [Img] ERROR:', error);
       });
   }
 

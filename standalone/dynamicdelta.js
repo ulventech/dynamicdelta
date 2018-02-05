@@ -12286,6 +12286,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
@@ -12354,26 +12356,19 @@ var H1 = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        _this2.setState({
-          loading: false,
-          fontSize: resp.fontSize,
-          color: resp.color,
-          text: resp.text || ' ',
-          styles: _this2.props.styles
-        });
-        if (!(0, _isEmpty2.default)(_this2.state.color) || !(0, _isNull2.default)(_this2.state.color)) {
-          var styles = _this2.state.styles;
-          styles[color] = _this2.state.color, _this2.setState({ styles: styles });
-        }
-        if (!(0, _isEmpty2.default)(_this2.state.fontSize) || !(0, _isNull2.default)(_this2.state.fontSize)) {
-          var _styles = _this2.state.styles;
-          _styles[fontSize] = _this2.state.fontSize, _this2.setState({ styles: _styles });
+        _this2.setState(_extends({}, resp));
+        if ((0, _isEmpty2.default)(_this2.state.styles.color) && !(0, _isEmpty2.default)(_this2.props.styles.color)) {
+          _this2.setState({
+            styles: _extends({}, _this2.state.styles, {
+              color: _this2.props.styles.color
+            })
+          });
         }
       }).catch(function (error) {
         _this2.setState({
           loading: false
         });
-        console.error('DDP ERROR:', error);
+        console.error('DynamicDelta [H1] ERROR:', error);
       });
     }
   }, {
@@ -12486,7 +12481,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
       }).then(function (resp) {
         _this2.setState(_extends({}, resp));
       }).catch(function (error) {
-        console.error('IMG ERROR:', error);
+        console.error('DynamicDelta [Img] ERROR:', error);
       });
     }
   }, {
@@ -12522,6 +12517,8 @@ exports.default = Img;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -12594,15 +12591,12 @@ var P = function (_React$Component) {
       fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
         return response.json();
       }).then(function (resp) {
-        _this2.setState({
-          loading: false,
-          text: resp.text || ' '
-        });
+        _this2.setState(_extends({}, resp));
       }).catch(function (error) {
         _this2.setState({
           loading: false
         });
-        console.error('DDP ERROR:', error);
+        console.error('DynamicDelta [P] ERROR:', error);
       });
     }
   }, {

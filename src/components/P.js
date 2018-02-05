@@ -28,22 +28,20 @@ class P extends React.Component {
     return newStr;
 }
 
-
-  componentDidMount() {
-    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
-      .then(response => response.json())
-      .then((resp) => {
-        this.setState({
-          loading: false,
-          text: resp.text || ' ',
-        });
-      })
-      .catch((error) => {
-        this.setState({
-          loading: false,
-        });
-        console.error('DDP ERROR:', error);
+componentDidMount() {
+  fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
+    .then(response => response.json())
+    .then((resp) => {
+      this.setState({
+        ...resp,
       });
+    })
+    .catch((error) => {
+      this.setState({
+        loading: false,
+      });
+      console.error('DynamicDelta [P] ERROR:', error);
+    });
   }
 
   render() {
@@ -53,7 +51,6 @@ class P extends React.Component {
         style={this.props.styles}
         className={this.props.classes}
       >
-
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </p>
     );
