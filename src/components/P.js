@@ -51,6 +51,7 @@ componentDidMount() {
       <p
         style={this.props.styles}
         className={this.props.classes}
+        onClick={this.props.onClick}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </p>
@@ -67,6 +68,7 @@ P.propTypes = {
   loadingText: PropTypes.string,
   styles: PropTypes.object,
   classes: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 P.defaultProps = {

@@ -12609,7 +12609,8 @@ var P = function (_React$Component) {
         'p',
         {
           style: this.props.styles,
-          className: this.props.classes
+          className: this.props.classes,
+          onClick: this.props.onClick
         },
         this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
       );
@@ -12627,7 +12628,8 @@ P.propTypes = {
   componentID: _propTypes2.default.string.isRequired,
   loadingText: _propTypes2.default.string,
   styles: _propTypes2.default.object,
-  classes: _propTypes2.default.string
+  classes: _propTypes2.default.string,
+  onClick: _propTypes2.default.func
 };
 
 P.defaultProps = {
