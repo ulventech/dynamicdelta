@@ -12,6 +12,7 @@
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-html-parser": "^2.0.2"
   },
   "standard": {
@@ -49,7 +50,7 @@
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
     "uglify-js": "^3.2.0",
-    "webpack": "^3.0.0",
+    "webpack": "^3.11.0",
     "webpack-blocks": "^1.0.0-rc.2"
   }
 }
