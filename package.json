@@ -30,7 +30,9 @@
   },
   "scripts": {
     "test": "make lint",
-    "build": "make deploy"
+    "build": "make deploy",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -43,8 +45,11 @@
     "babelify": "^7.2.0",
     "browserify": "^14.5.0",
     "browserify-shim": "^3.8.14",
+    "react-styleguidist": "^6.2.5",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
-    "uglify-js": "^3.2.0"
+    "uglify-js": "^3.2.0",
+    "webpack": "^3.0.0",
+    "webpack-blocks": "^1.0.0-rc.2"
   }
 }
