@@ -10,6 +10,7 @@ import H5 from './components/H1';
 import H6 from './components/H1';
 import Img from './components/Img';
 import Button from './components/Img';
+import Unordered from './components/UL';
 
 module.exports = {
   DynamicDelta,
@@ -21,4 +22,5 @@ module.exports = {
   H5,
   H6,
   Button,
+  Unordered,
 };
