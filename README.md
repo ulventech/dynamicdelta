@@ -25,3 +25,8 @@ ReactDOM.render((
 ### Available components
 - DDP `<p>{text}<p/>`
 - DDH1 `<h1>{text}<h1/>`
+- DDH2 `<h2>{text}<h2/>`
+- DDH3 `<h3>{text}<h3/>`
+- DDH4 `<h4>{text}<h4/>`
+- DDH5 `<h5>{text}<h5/>`
+- DDH6 `<h6>{text}<h6/>`
