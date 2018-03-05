@@ -12806,7 +12806,7 @@ module.exports = {
   H4: _H2.default,
   H5: _H2.default,
   H6: _H2.default,
-  Img: _Img2.default
+  Button: _Img2.default
 };
 
 },{"./components/H1":126,"./components/Img":127,"./components/P":128,"./core/DynamicDelta":130}]},{},[131])(131)
