@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
-import CONSTANT from '../constant';
+import CONSTANT from '../../constant';
 import isNull from 'lodash/isNull';
 import isEmpty from 'lodash/isEmpty';
 
-class H3 extends React.Component {
+class H2 extends React.Component {
   static contextTypes = {
     projectID: PropTypes.string.isRequired,
   }
@@ -59,7 +59,7 @@ class H3 extends React.Component {
         this.setState({
           loading: false,
         });
-        console.error('DynamicDelta [H3] ERROR:', error);
+        console.error('DynamicDelta [H2] ERROR:', error);
       });
   }
 
@@ -67,15 +67,15 @@ class H3 extends React.Component {
     let text = this.formatText(this.state.text)
     return (
       <div>
-        <h3
+        <h2
           style={this.props.styles}
           className={this.props.classes}
         >
           {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-        </h3>
+        </h2>
       </div>
     );
   }
 }
 
-export default H3;
+export default H2;

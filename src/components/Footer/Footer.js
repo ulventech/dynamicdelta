@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
-import CONSTANT from './../constant';
+import CONSTANT from '../../constant';
 
-class P extends React.Component {
+class Footer extends React.Component {
   state = {
     text: '',
     loading: true,
@@ -48,22 +48,22 @@ componentDidMount() {
   render() {
     let text = this.formatText(this.state.text)
     return (
-      <p
+      <footer
         style={this.props.styles}
         className={this.props.classes}
         onClick={this.props.onClick}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-      </p>
+      </footer>
     );
   }
 }
 
-P.contextTypes = {
+Footer.contextTypes = {
   projectID: PropTypes.string.isRequired,
 };
 
-P.propTypes = {
+Footer.propTypes = {
   componentID: PropTypes.string.isRequired,
   loadingText: PropTypes.string,
   styles: PropTypes.object,
@@ -71,10 +71,10 @@ P.propTypes = {
   onClick: PropTypes.func,
 };
 
-P.defaultProps = {
+Footer.defaultProps = {
   loadingText: '\u00A0',
   styles: {},
   classes: '',
 };
 
-export default P;
+export default Footer;

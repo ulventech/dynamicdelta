@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
-import CONSTANT from '../constant';
+import CONSTANT from '../../constant';
 import isNull from 'lodash/isNull';
 import isEmpty from 'lodash/isEmpty';
 
-class H4 extends React.Component {
+class Button extends React.Component {
   static contextTypes = {
     projectID: PropTypes.string.isRequired,
   }
 
   static propTypes = {
     componentID: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
     loadingText: PropTypes.string,
     styles: PropTypes.object,
     classes: PropTypes.string,
@@ -59,7 +60,7 @@ class H4 extends React.Component {
         this.setState({
           loading: false,
         });
-        console.error('DynamicDelta [H4] ERROR:', error);
+        console.error('DynamicDelta [Button] ERROR:', error);
       });
   }
 
@@ -67,15 +68,16 @@ class H4 extends React.Component {
     let text = this.formatText(this.state.text)
     return (
       <div>
-        <h4
+        <button
           style={this.props.styles}
           className={this.props.classes}
+          onClick={this.props.onClick}
         >
           {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-        </h4>
+        </button>
       </div>
     );
   }
 }
 
-export default H4;
+export default Button;

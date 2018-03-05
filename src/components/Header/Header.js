@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
-import CONSTANT from './../constant';
+import CONSTANT from '../../constant';
 
-class P extends React.Component {
+class Header extends React.Component {
   state = {
     text: '',
     loading: true,
@@ -21,7 +21,7 @@ class P extends React.Component {
     //Format for Markdown(Internal Links)
     newStr = newStr.replace(/\[(.+?)\]\((\/?.+?)\)/g, '<a href="/#$2">$1</a>');
 
-    //Change email addresses to mailto:: links.
+    // //Change email addresses to mailto:: links.
     const expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
     newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
 
@@ -48,22 +48,22 @@ componentDidMount() {
   render() {
     let text = this.formatText(this.state.text)
     return (
-      <p
+      <header
         style={this.props.styles}
         className={this.props.classes}
         onClick={this.props.onClick}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-      </p>
+      </header>
     );
   }
 }
 
-P.contextTypes = {
+Header.contextTypes = {
   projectID: PropTypes.string.isRequired,
 };
 
-P.propTypes = {
+Header.propTypes = {
   componentID: PropTypes.string.isRequired,
   loadingText: PropTypes.string,
   styles: PropTypes.object,
@@ -71,10 +71,10 @@ P.propTypes = {
   onClick: PropTypes.func,
 };
 
-P.defaultProps = {
+Header.defaultProps = {
   loadingText: '\u00A0',
   styles: {},
   classes: '',
 };
 
-export default P;
+export default Header;

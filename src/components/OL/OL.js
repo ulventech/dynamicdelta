@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
-import CONSTANT from '../constant';
+import CONSTANT from '../../constant';
 import isNull from 'lodash/isNull';
 import isEmpty from 'lodash/isEmpty';
 
-class H1 extends React.Component {
+class OL extends React.Component {
   static contextTypes = {
     projectID: PropTypes.string.isRequired,
   }
@@ -31,11 +31,6 @@ class H1 extends React.Component {
     loading: true,
   }
 
-  formatText = (text) => {
-    let newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-    return newStr;
-  }
-
   componentDidMount() {
     fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
       .then(response => response.json())
@@ -59,23 +54,25 @@ class H1 extends React.Component {
         this.setState({
           loading: false,
         });
-        console.error('DynamicDelta [H1] ERROR:', error);
+        console.error('DynamicDelta [UL] ERROR:', error);
       });
   }
 
   render() {
-    let text = this.formatText(this.state.text)
+      const listItems = this.state.text
     return (
       <div>
-        <h1
+        <ol
           style={this.props.styles}
           className={this.props.classes}
         >
-          {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-        </h1>
+          {this.state.loading ? this.props.loadingText : this.state.text.map((items, index) => (
+            <li key={index}>{items}</li>
+          ))}
+        </ol>
       </div>
     );
   }
 }
 
-export default H1;
+export default OL;
