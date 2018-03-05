@@ -46,6 +46,7 @@
     "babelify": "^7.2.0",
     "browserify": "^14.5.0",
     "browserify-shim": "^3.8.14",
+    "react-dom": "^16.2.0",
     "react-styleguidist": "^6.2.5",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
