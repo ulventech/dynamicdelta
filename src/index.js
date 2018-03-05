@@ -12,6 +12,8 @@ import Img from './components/Img';
 import Button from './components/Img';
 import Unordered from './components/UL';
 import Ordered from './components/OL';
+import Footer from './components/Footer';
+import Header from './components/Footer';
 
 module.exports = {
   DynamicDelta,
@@ -25,4 +27,6 @@ module.exports = {
   Button,
   Unordered,
   Ordered,
+  Footer,
+  Header,
 };

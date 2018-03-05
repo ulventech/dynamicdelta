@@ -12335,6 +12335,137 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _constant = require('../constant');
+
+var _constant2 = _interopRequireDefault(_constant);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Footer = function (_React$Component) {
+  _inherits(Footer, _React$Component);
+
+  function Footer() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Footer);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Footer.__proto__ || Object.getPrototypeOf(Footer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      loading: true
+    }, _this.formatText = function (text) {
+      var newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+      newStr = newStr.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+      newStr = newStr.replace(/~~(.*?)~~/g, "<i>$1</i>");
+
+      //Format for Markdown(Extrnal Links)
+      newStr = newStr.replace(/\[(.+?)\]\((https?:\/\/.+?)\)/g, '<a href="$2" target="_blank">$1</a>');
+      newStr = newStr.replace(/(?: |^)(https?\:\/\/[a-zA-Z0-9/.(]+)/g, '<a href="$1" target="_blank">$1</a>');
+
+      //Format for Markdown(Internal Links)
+      newStr = newStr.replace(/\[(.+?)\]\((\/?.+?)\)/g, '<a href="/#$2">$1</a>');
+
+      //Change email addresses to mailto:: links.
+      var expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+      newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
+
+      return newStr;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Footer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch(_constant2.default.GLOBAL.API + '/' + this.context.projectID + '/' + this.props.componentID).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState(_extends({
+          loading: false
+        }, resp));
+      }).catch(function (error) {
+        _this2.setState({
+          loading: false
+        });
+        console.error('DynamicDelta [P] ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var text = this.formatText(this.state.text);
+      return _react2.default.createElement(
+        'footer',
+        {
+          style: this.props.styles,
+          className: this.props.classes,
+          onClick: this.props.onClick
+        },
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+      );
+    }
+  }]);
+
+  return Footer;
+}(_react2.default.Component);
+
+Footer.contextTypes = {
+  projectID: _propTypes2.default.string.isRequired
+};
+
+Footer.propTypes = {
+  componentID: _propTypes2.default.string.isRequired,
+  loadingText: _propTypes2.default.string,
+  styles: _propTypes2.default.object,
+  classes: _propTypes2.default.string,
+  onClick: _propTypes2.default.func
+};
+
+Footer.defaultProps = {
+  loadingText: '\xA0',
+  styles: {},
+  classes: ''
+};
+
+exports.default = Footer;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../constant":132,"prop-types":76,"react-html-parser":88}],127:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _class, _temp2;
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
@@ -12458,7 +12589,7 @@ var H1 = (_temp2 = _class = function (_React$Component) {
 exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":131,"lodash/isEmpty":62,"lodash/isNull":65,"prop-types":76,"react-html-parser":88}],127:[function(require,module,exports){
+},{"../constant":132,"lodash/isEmpty":62,"lodash/isNull":65,"prop-types":76,"react-html-parser":88}],128:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -12555,7 +12686,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
 exports.default = Img;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":131,"lodash/isEmpty":62,"prop-types":76}],128:[function(require,module,exports){
+},{"../constant":132,"lodash/isEmpty":62,"prop-types":76}],129:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -12693,7 +12824,7 @@ var OL = (_temp2 = _class = function (_React$Component) {
 exports.default = OL;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":131,"lodash/isEmpty":62,"lodash/isNull":65,"prop-types":76,"react-html-parser":88}],129:[function(require,module,exports){
+},{"../constant":132,"lodash/isEmpty":62,"lodash/isNull":65,"prop-types":76,"react-html-parser":88}],130:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -12824,7 +12955,7 @@ P.defaultProps = {
 exports.default = P;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":131,"prop-types":76,"react-html-parser":88}],130:[function(require,module,exports){
+},{"../constant":132,"prop-types":76,"react-html-parser":88}],131:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -12962,7 +13093,7 @@ var UL = (_temp2 = _class = function (_React$Component) {
 exports.default = UL;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":131,"lodash/isEmpty":62,"lodash/isNull":65,"prop-types":76,"react-html-parser":88}],131:[function(require,module,exports){
+},{"../constant":132,"lodash/isEmpty":62,"lodash/isNull":65,"prop-types":76,"react-html-parser":88}],132:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12979,7 +13110,7 @@ exports.default = {
   STATIC_API: 'https://static.dynamicdelta.com'
 };
 
-},{}],132:[function(require,module,exports){
+},{}],133:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -13052,7 +13183,7 @@ DynamicDelta.propTypes = {
 exports.default = DynamicDelta;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"lodash/isEmpty":62,"prop-types":76}],133:[function(require,module,exports){
+},{"lodash/isEmpty":62,"prop-types":76}],134:[function(require,module,exports){
 'use strict';
 
 var _DynamicDelta = require('./core/DynamicDelta');
@@ -13079,6 +13210,10 @@ var _OL = require('./components/OL');
 
 var _OL2 = _interopRequireDefault(_OL);
 
+var _Footer = require('./components/Footer');
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
@@ -13092,8 +13227,10 @@ module.exports = {
   H6: _H2.default,
   Button: _Img2.default,
   Unordered: _UL2.default,
-  Ordered: _OL2.default
+  Ordered: _OL2.default,
+  Footer: _Footer2.default,
+  Header: _Footer2.default
 };
 
-},{"./components/H1":126,"./components/Img":127,"./components/OL":128,"./components/P":129,"./components/UL":130,"./core/DynamicDelta":132}]},{},[133])(133)
+},{"./components/Footer":126,"./components/H1":127,"./components/Img":128,"./components/OL":129,"./components/P":130,"./components/UL":131,"./core/DynamicDelta":133}]},{},[134])(134)
 });
