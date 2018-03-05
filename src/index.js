@@ -9,6 +9,7 @@ import H5 from './components/H5';
 import H6 from './components/H6';
 import P from './components/P';
 import Img from './components/Img';
+import Button from './components/Button';
 
 module.exports = {
   DynamicDelta,
@@ -20,4 +21,5 @@ module.exports = {
   H6,
   P,
   Img,
+  Button,
 };
