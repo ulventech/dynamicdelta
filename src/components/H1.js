@@ -1,62 +1,37 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import PropTypes from 'prop-types';
-import CONSTANT from '../constant';
-import isNull from 'lodash/isNull';
-import isEmpty from 'lodash/isEmpty';
+import { contextTypes, propTypes, defaultProps } from '../props/H';
+import { isNull, isEmpty } from 'lodash';
+import { CDNURL } from '../utils';
 
 class H1 extends React.Component {
-  static contextTypes = {
-    projectID: PropTypes.string.isRequired,
-  }
-
-  static propTypes = {
-    componentID: PropTypes.string.isRequired,
-    loadingText: PropTypes.string,
-    styles: PropTypes.object,
-    classes: PropTypes.string,
-  }
-
-  static defaultProps = {
-    loadingText: '\u00A0',
-    styles: {},
-    classes: '',
-  }
+  static contextTypes = contextTypes;
+  static propTypes = propTypes;
+  static defaultProps = defaultProps;
 
   state = {
-    fontSize: '',
-    color: '',
     text: '',
-    styles: {},
+    style: {},
     loading: true,
+    error: null,
   }
 
-  formatText = (text) => {
-    let newStr = text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-    return newStr;
+  formatText = text => {
+    return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
   }
 
   componentDidMount() {
-    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
+    fetch(CDNURL(this.context.projectID, this.props.componentID))
       .then(response => response.json())
       .then((resp) => {
         this.setState({
           ...resp,
           loading: false,
         });
-        /*
-        if (isEmpty(this.state.styles.color) && !isEmpty(this.props.styles.color)) {
-          this.setState({
-            styles: {
-              ...this.state.styles,
-              color: this.props.styles.color,
-            }
-          })
-        }
-        */
       })
       .catch((error) => {
         this.setState({
+          error: error,
           loading: false,
         });
         console.error('DynamicDelta [H1] ERROR:', error);
@@ -64,16 +39,22 @@ class H1 extends React.Component {
   }
 
   render() {
-    let text = this.formatText(this.state.text)
+    const {
+      style,
+      className,
+      itemProp,
+    } = this.props;
+    const text = this.formatText(this.state.text);
+    const styles = Object.assign({}, this.state.style, style);
+
     return (
-      <div>
-        <h1
-          style={this.props.styles}
-          className={this.props.classes}
-        >
-          {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-        </h1>
-      </div>
+      <h1
+        style={styles}
+        className={className}
+        itemProp={itemProp}
+      >
+        {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
+      </h1>
     );
   }
 }

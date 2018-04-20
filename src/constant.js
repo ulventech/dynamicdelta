@@ -1,6 +1,7 @@
 export default {
   GLOBAL: {
-    API: 'https://cdn.dynamicdelta.com/v1/component',
+    // API: 'https://api.dynamicdelta.com',
+    API: 'http://localhost:8080',
     FETCH: {
       method: 'GET',
       mode: 'no-cors'

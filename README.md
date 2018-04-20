@@ -23,10 +23,25 @@ ReactDOM.render((
 ```
 
 ### Available components
-- DDP `<p>{text}<p/>`
-- DDH1 `<h1>{text}<h1/>`
-- DDH2 `<h2>{text}<h2/>`
-- DDH3 `<h3>{text}<h3/>`
-- DDH4 `<h4>{text}<h4/>`
-- DDH5 `<h5>{text}<h5/>`
-- DDH6 `<h6>{text}<h6/>`
+- P `<p>{text}<p/>`
+- H1 `<h1>{text}<h1/>`
+- H2 `<h2>{text}<h2/>`
+- H3 `<h3>{text}<h3/>`
+- H4 `<h4>{text}<h4/>`
+- H5 `<h5>{text}<h5/>`
+- H6 `<h6>{text}<h6/>`
+- Img `<img />`
+
+### Component props
+## H1
+```js
+import { H1 } from 'dynamicdelta'
+
+<H1
+  componentID="xxxxx"
+  style={{ fontSize: 42 }}
+  className="my-class"
+  loadingText="custom loading text"
+  itemProp="title"
+/>
+```

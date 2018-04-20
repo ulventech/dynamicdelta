@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import PropTypes from 'prop-types';
-import CONSTANT from '../constant';
+import { contextTypes, propTypes, defaultProps } from '../props/P';
+import { isNull, isEmpty } from 'lodash';
+import { CDNURL } from '../utils';
 
 class P extends React.Component {
+  static contextTypes = contextTypes;
+  static propTypes = propTypes;
+  static defaultProps = defaultProps;
+
   state = {
     text: '',
+    style: {},
     loading: true,
+    error: null,
   }
 
   formatText = (text) => {
@@ -29,52 +36,42 @@ class P extends React.Component {
 }
 
 componentDidMount() {
-  fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
+  fetch(CDNURL(this.context.projectID, this.props.componentID))
     .then(response => response.json())
     .then((resp) => {
       this.setState({
-        loading: false,
         ...resp,
+        loading: false,
       });
     })
     .catch((error) => {
+      console.error('DynamicDelta [P] ERROR:', error);
       this.setState({
+        error: error,
         loading: false,
       });
-      console.error('DynamicDelta [P] ERROR:', error);
     });
   }
 
   render() {
-    let text = this.formatText(this.state.text)
+    const {
+      style,
+      className,
+      itemProp,
+    } = this.props;
+    const text = this.formatText(this.state.text);
+    const styles = Object.assign({}, this.state.style, style);
+
     return (
       <p
-        style={this.props.styles}
-        className={this.props.classes}
-        onClick={this.props.onClick}
+        style={styles}
+        className={className}
+        itemProp={itemProp}
       >
         {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
       </p>
     );
   }
 }
-
-P.contextTypes = {
-  projectID: PropTypes.string.isRequired,
-};
-
-P.propTypes = {
-  componentID: PropTypes.string.isRequired,
-  loadingText: PropTypes.string,
-  styles: PropTypes.object,
-  classes: PropTypes.string,
-  onClick: PropTypes.func,
-};
-
-P.defaultProps = {
-  loadingText: '\u00A0',
-  styles: {},
-  classes: '',
-};
 
 export default P;

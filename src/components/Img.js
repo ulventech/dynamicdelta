@@ -1,27 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import { contextTypes, propTypes, defaultProps } from '../props/Img';
 import CONSTANT from '../constant';
 
 class Img extends React.Component {
-  static propTypes = {
-    componentID: PropTypes.string.isRequired,
-    styles: PropTypes.object,
-    classes: PropTypes.string,
-  }
-
-  static defaultProps = {
-    styles: {},
-    classes: '',
-  }
-
-  static contextTypes = {
-    projectID: PropTypes.string.isRequired,
-  }
+  static contextTypes = contextTypes;
+  static propTypes = propTypes;
+  static defaultProps = defaultProps;
 
   state = {
     img: '',
     alt: '',
+    style: {},
+    loading: true,
+    error: null,
   }
 
   componentDidMount() {
@@ -34,17 +27,29 @@ class Img extends React.Component {
       })
       .catch((error) => {
         console.error('DynamicDelta [Img] ERROR:', error);
+        this.setState({
+          error: error,
+          loading: false,
+        });
       });
   }
 
   render() {
+    const {
+      style,
+      className,
+      itemProp,
+    } = this.props;
+    const styles = Object.assign({}, this.state.style, style);
+
     return (
       !isEmpty(this.state.img) ? (
         <img
-          src={`${CONSTANT.STATIC_API}${this.state.img}`}
+          src={`${CONSTANT.STATIC_API}/${this.state.img}`}
           alt={this.state.alt}
-          style={this.props.styles}
-          className={this.props.classes}
+          style={styles}
+          className={className}
+          itemProp={itemProp}
         />
       ) : null
     );
