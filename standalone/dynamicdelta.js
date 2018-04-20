@@ -30155,8 +30155,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   GLOBAL: {
-    // API: 'https://api.dynamicdelta.com',
-    API: 'http://localhost:8080',
+    API: 'https://api.dynamicdelta.com',
     FETCH: {
       method: 'GET',
       mode: 'no-cors'
