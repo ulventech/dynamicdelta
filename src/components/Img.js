@@ -11,7 +11,7 @@ class Img extends React.Component {
   static defaultProps = defaultProps;
 
   state = {
-    img: '',
+    image: '',
     alt: '',
     style: {},
     loading: true,
@@ -46,7 +46,7 @@ class Img extends React.Component {
     return (
       !isEmpty(this.state.img) ? (
         <img
-          src={`${CONSTANT.STATIC_API}/${this.state.img}`}
+          src={`${CONSTANT.STATIC_API}/${this.state.image}`}
           alt={this.state.alt}
           style={styles}
           className={className}

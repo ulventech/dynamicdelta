@@ -29507,7 +29507,542 @@ var H1 = (_temp2 = _class = function (_React$Component) {
 exports.default = H1;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../props/H":132,"../utils":135,"lodash":68,"react-html-parser":88}],127:[function(require,module,exports){
+},{"../props/H":137,"../utils":140,"lodash":68,"react-html-parser":88}],127:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _H = require('../props/H');
+
+var _lodash = require('lodash');
+
+var _utils = require('../utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var H2 = (_temp2 = _class = function (_React$Component) {
+  _inherits(H2, _React$Component);
+
+  function H2() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, H2);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = H2.__proto__ || Object.getPrototypeOf(H2)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      style: {},
+      loading: true,
+      error: null
+    }, _this.formatText = function (text) {
+      return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(H2, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch((0, _utils.CDNURL)(this.context.projectID, this.props.componentID)).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState(_extends({}, resp, {
+          loading: false
+        }));
+      }).catch(function (error) {
+        _this2.setState({
+          error: error,
+          loading: false
+        });
+        console.error('DynamicDelta [H2] ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          style = _props.style,
+          className = _props.className,
+          itemProp = _props.itemProp;
+
+      var text = this.formatText(this.state.text);
+      var styles = Object.assign({}, this.state.style, style);
+
+      return _react2.default.createElement(
+        'h2',
+        {
+          style: styles,
+          className: className,
+          itemProp: itemProp
+        },
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+      );
+    }
+  }]);
+
+  return H2;
+}(_react2.default.Component), _class.contextTypes = _H.contextTypes, _class.propTypes = _H.propTypes, _class.defaultProps = _H.defaultProps, _temp2);
+exports.default = H2;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../props/H":137,"../utils":140,"lodash":68,"react-html-parser":88}],128:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _H = require('../props/H');
+
+var _lodash = require('lodash');
+
+var _utils = require('../utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var H3 = (_temp2 = _class = function (_React$Component) {
+  _inherits(H3, _React$Component);
+
+  function H3() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, H3);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = H3.__proto__ || Object.getPrototypeOf(H3)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      style: {},
+      loading: true,
+      error: null
+    }, _this.formatText = function (text) {
+      return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(H3, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch((0, _utils.CDNURL)(this.context.projectID, this.props.componentID)).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState(_extends({}, resp, {
+          loading: false
+        }));
+      }).catch(function (error) {
+        _this2.setState({
+          error: error,
+          loading: false
+        });
+        console.error('DynamicDelta [H3] ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          style = _props.style,
+          className = _props.className,
+          itemProp = _props.itemProp;
+
+      var text = this.formatText(this.state.text);
+      var styles = Object.assign({}, this.state.style, style);
+
+      return _react2.default.createElement(
+        'h3',
+        {
+          style: styles,
+          className: className,
+          itemProp: itemProp
+        },
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+      );
+    }
+  }]);
+
+  return H3;
+}(_react2.default.Component), _class.contextTypes = _H.contextTypes, _class.propTypes = _H.propTypes, _class.defaultProps = _H.defaultProps, _temp2);
+exports.default = H3;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../props/H":137,"../utils":140,"lodash":68,"react-html-parser":88}],129:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _H = require('../props/H');
+
+var _lodash = require('lodash');
+
+var _utils = require('../utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var H4 = (_temp2 = _class = function (_React$Component) {
+  _inherits(H4, _React$Component);
+
+  function H4() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, H4);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = H4.__proto__ || Object.getPrototypeOf(H4)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      style: {},
+      loading: true,
+      error: null
+    }, _this.formatText = function (text) {
+      return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(H4, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch((0, _utils.CDNURL)(this.context.projectID, this.props.componentID)).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState(_extends({}, resp, {
+          loading: false
+        }));
+      }).catch(function (error) {
+        _this2.setState({
+          error: error,
+          loading: false
+        });
+        console.error('DynamicDelta [H4] ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          style = _props.style,
+          className = _props.className,
+          itemProp = _props.itemProp;
+
+      var text = this.formatText(this.state.text);
+      var styles = Object.assign({}, this.state.style, style);
+
+      return _react2.default.createElement(
+        'h4',
+        {
+          style: styles,
+          className: className,
+          itemProp: itemProp
+        },
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+      );
+    }
+  }]);
+
+  return H4;
+}(_react2.default.Component), _class.contextTypes = _H.contextTypes, _class.propTypes = _H.propTypes, _class.defaultProps = _H.defaultProps, _temp2);
+exports.default = H4;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../props/H":137,"../utils":140,"lodash":68,"react-html-parser":88}],130:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _H = require('../props/H');
+
+var _lodash = require('lodash');
+
+var _utils = require('../utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var H5 = (_temp2 = _class = function (_React$Component) {
+  _inherits(H5, _React$Component);
+
+  function H5() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, H5);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = H5.__proto__ || Object.getPrototypeOf(H5)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      style: {},
+      loading: true,
+      error: null
+    }, _this.formatText = function (text) {
+      return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(H5, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch((0, _utils.CDNURL)(this.context.projectID, this.props.componentID)).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState(_extends({}, resp, {
+          loading: false
+        }));
+      }).catch(function (error) {
+        _this2.setState({
+          error: error,
+          loading: false
+        });
+        console.error('DynamicDelta [H5] ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          style = _props.style,
+          className = _props.className,
+          itemProp = _props.itemProp;
+
+      var text = this.formatText(this.state.text);
+      var styles = Object.assign({}, this.state.style, style);
+
+      return _react2.default.createElement(
+        'h5',
+        {
+          style: styles,
+          className: className,
+          itemProp: itemProp
+        },
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+      );
+    }
+  }]);
+
+  return H5;
+}(_react2.default.Component), _class.contextTypes = _H.contextTypes, _class.propTypes = _H.propTypes, _class.defaultProps = _H.defaultProps, _temp2);
+exports.default = H5;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../props/H":137,"../utils":140,"lodash":68,"react-html-parser":88}],131:[function(require,module,exports){
+(function (global){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _H = require('../props/H');
+
+var _lodash = require('lodash');
+
+var _utils = require('../utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var H6 = (_temp2 = _class = function (_React$Component) {
+  _inherits(H6, _React$Component);
+
+  function H6() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, H6);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = H6.__proto__ || Object.getPrototypeOf(H6)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      text: '',
+      style: {},
+      loading: true,
+      error: null
+    }, _this.formatText = function (text) {
+      return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(H6, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch((0, _utils.CDNURL)(this.context.projectID, this.props.componentID)).then(function (response) {
+        return response.json();
+      }).then(function (resp) {
+        _this2.setState(_extends({}, resp, {
+          loading: false
+        }));
+      }).catch(function (error) {
+        _this2.setState({
+          error: error,
+          loading: false
+        });
+        console.error('DynamicDelta [H6] ERROR:', error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          style = _props.style,
+          className = _props.className,
+          itemProp = _props.itemProp;
+
+      var text = this.formatText(this.state.text);
+      var styles = Object.assign({}, this.state.style, style);
+
+      return _react2.default.createElement(
+        'h6',
+        {
+          style: styles,
+          className: className,
+          itemProp: itemProp
+        },
+        this.state.loading ? this.props.loadingText : (0, _reactHtmlParser2.default)(text)
+      );
+    }
+  }]);
+
+  return H6;
+}(_react2.default.Component), _class.contextTypes = _H.contextTypes, _class.propTypes = _H.propTypes, _class.defaultProps = _H.defaultProps, _temp2);
+exports.default = H6;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../props/H":137,"../utils":140,"lodash":68,"react-html-parser":88}],132:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -29564,7 +30099,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Img.__proto__ || Object.getPrototypeOf(Img)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      img: '',
+      image: '',
       alt: '',
       style: {},
       loading: true,
@@ -29600,7 +30135,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
       var styles = Object.assign({}, this.state.style, style);
 
       return !(0, _isEmpty2.default)(this.state.img) ? _react2.default.createElement('img', {
-        src: _constant2.default.STATIC_API + '/' + this.state.img,
+        src: _constant2.default.STATIC_API + '/' + this.state.image,
         alt: this.state.alt,
         style: styles,
         className: className,
@@ -29614,7 +30149,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
 exports.default = Img;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":129,"../props/Img":133,"../utils":135,"lodash/isEmpty":62,"prop-types":76}],128:[function(require,module,exports){
+},{"../constant":134,"../props/Img":138,"../utils":140,"lodash/isEmpty":62,"prop-types":76}],133:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -29736,7 +30271,7 @@ var P = (_temp2 = _class = function (_React$Component) {
 exports.default = P;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../props/P":134,"../utils":135,"lodash":68,"react-html-parser":88}],129:[function(require,module,exports){
+},{"../props/P":139,"../utils":140,"lodash":68,"react-html-parser":88}],134:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29753,7 +30288,7 @@ exports.default = {
   STATIC_API: 'https://static.dynamicdelta.com'
 };
 
-},{}],130:[function(require,module,exports){
+},{}],135:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -29823,7 +30358,7 @@ var DynamicDelta = exports.DynamicDelta = (_temp = _class = function (_React$Com
 exports.default = DynamicDelta;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"lodash/isEmpty":62,"prop-types":76}],131:[function(require,module,exports){
+},{"lodash/isEmpty":62,"prop-types":76}],136:[function(require,module,exports){
 'use strict';
 
 var _DynamicDelta = require('./core/DynamicDelta');
@@ -29838,6 +30373,26 @@ var _H = require('./components/H1');
 
 var _H2 = _interopRequireDefault(_H);
 
+var _H3 = require('./components/H2');
+
+var _H4 = _interopRequireDefault(_H3);
+
+var _H5 = require('./components/H3');
+
+var _H6 = _interopRequireDefault(_H5);
+
+var _H7 = require('./components/H4');
+
+var _H8 = _interopRequireDefault(_H7);
+
+var _H9 = require('./components/H5');
+
+var _H10 = _interopRequireDefault(_H9);
+
+var _H11 = require('./components/H6');
+
+var _H12 = _interopRequireDefault(_H11);
+
 var _Img = require('./components/Img');
 
 var _Img2 = _interopRequireDefault(_Img);
@@ -29848,15 +30403,15 @@ module.exports = {
   DynamicDelta: _DynamicDelta2.default,
   P: _P2.default,
   H1: _H2.default,
-  H2: _H2.default,
-  H3: _H2.default,
-  H4: _H2.default,
-  H5: _H2.default,
-  H6: _H2.default,
+  H2: _H4.default,
+  H3: _H6.default,
+  H4: _H8.default,
+  H5: _H10.default,
+  H6: _H12.default,
   Img: _Img2.default
 };
 
-},{"./components/H1":126,"./components/Img":127,"./components/P":128,"./core/DynamicDelta":130}],132:[function(require,module,exports){
+},{"./components/H1":126,"./components/H2":127,"./components/H3":128,"./components/H4":129,"./components/H5":130,"./components/H6":131,"./components/Img":132,"./components/P":133,"./core/DynamicDelta":135}],137:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29888,7 +30443,7 @@ var defaultProps = exports.defaultProps = {
   className: ''
 };
 
-},{"prop-types":76}],133:[function(require,module,exports){
+},{"prop-types":76}],138:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29918,7 +30473,7 @@ var defaultProps = exports.defaultProps = {
   className: ''
 };
 
-},{"prop-types":76}],134:[function(require,module,exports){
+},{"prop-types":76}],139:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29950,7 +30505,7 @@ var defaultProps = exports.defaultProps = {
   className: ''
 };
 
-},{"prop-types":76}],135:[function(require,module,exports){
+},{"prop-types":76}],140:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29968,5 +30523,5 @@ function CDNURL(pid, cid) {
   return _constant2.default.GLOBAL.API + '/v1/cdn/project/' + pid + '/component/' + cid;
 }
 
-},{"./constant":129}]},{},[131])(131)
+},{"./constant":134}]},{},[136])(136)
 });
