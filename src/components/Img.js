@@ -44,7 +44,7 @@ class Img extends React.Component {
     const styles = Object.assign({}, this.state.style, style);
 
     return (
-      !isEmpty(this.state.img) ? (
+      !isEmpty(this.state.image) ? (
         <img
           src={`${CONSTANT.STATIC_API}/${this.state.image}`}
           alt={this.state.alt}

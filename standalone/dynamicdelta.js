@@ -30134,7 +30134,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
 
       var styles = Object.assign({}, this.state.style, style);
 
-      return !(0, _isEmpty2.default)(this.state.img) ? _react2.default.createElement('img', {
+      return !(0, _isEmpty2.default)(this.state.image) ? _react2.default.createElement('img', {
         src: _constant2.default.STATIC_API + '/' + this.state.image,
         alt: this.state.alt,
         style: styles,
