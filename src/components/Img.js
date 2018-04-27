@@ -18,7 +18,7 @@ class Img extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${CONSTANT.GLOBAL.API}/${this.context.projectID}/${this.props.componentID}`)
+    fetch(CDNURL(this.context.projectID, this.props.componentID))
       .then(response => response.json())
       .then((resp) => {
         this.setState({
