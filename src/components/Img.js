@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { contextTypes, propTypes, defaultProps } from '../props/Img';
 import CONSTANT from '../constant';
+import { CDNURL } from '../utils';
 
 class Img extends React.Component {
   static contextTypes = contextTypes;

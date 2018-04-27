@@ -29539,6 +29539,8 @@ var _constant = require('../constant');
 
 var _constant2 = _interopRequireDefault(_constant);
 
+var _utils = require('../utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29575,7 +29577,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch(CDNURL(this.context.projectID, this.props.componentID)).then(function (response) {
+      fetch((0, _utils.CDNURL)(this.context.projectID, this.props.componentID)).then(function (response) {
         return response.json();
       }).then(function (resp) {
         _this2.setState(_extends({}, resp));
@@ -29612,7 +29614,7 @@ var Img = (_temp2 = _class = function (_React$Component) {
 exports.default = Img;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../constant":129,"../props/Img":133,"lodash/isEmpty":62,"prop-types":76}],128:[function(require,module,exports){
+},{"../constant":129,"../props/Img":133,"../utils":135,"lodash/isEmpty":62,"prop-types":76}],128:[function(require,module,exports){
 (function (global){
 'use strict';
 
