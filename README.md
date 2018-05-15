@@ -31,6 +31,7 @@ ReactDOM.render((
 - H5 `<h5>{text}<h5/>`
 - H6 `<h6>{text}<h6/>`
 - Img `<img />`
+- Blog HOC
 
 ### Component props
 ## H1
@@ -44,4 +45,30 @@ import { H1 } from 'dynamicdelta'
   loadingText="custom loading text"
   itemProp="title"
 />
+```
+
+### Blog Component
+The blog component is diffrent than other components because it does not return
+one html element.
+
+```javascript
+static childContextTypes = {
+  posts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+}
+
+static contextTypes = {
+  projectID: PropTypes.string.isRequired,
+}
+
+static propTypes = {
+  loadingText: PropTypes.any,
+  style: PropTypes.shape({}),
+  className: PropTypes.string,
+}
+
+static defaultProps = {
+  loadingText: '\u00A0',
+  style: {},
+  className: '',
+}
 ```
