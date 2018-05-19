@@ -9,7 +9,6 @@ export const propTypes = {
   loadingText: PropTypes.node,
   style: PropTypes.shape({}),
   className: PropTypes.string,
-  itemProp: PropTypes.string,
 };
 
 export const defaultProps = {

@@ -10,7 +10,7 @@ class BlogPost extends React.Component {
   }
 
   static propTypes = {
-    postID: PropTypes.string.isRequired,
+    UUID: PropTypes.string.isRequired,
     loadingText: PropTypes.any,
     style: PropTypes.shape({}),
     className: PropTypes.string,
@@ -23,7 +23,7 @@ class BlogPost extends React.Component {
   }
 
   state = {
-    post: '',
+    post: {},
     loading: true,
     error: null,
   }
@@ -31,7 +31,7 @@ class BlogPost extends React.Component {
   componentDidMount() {
     fetch(BLOGURL(
       this.context.projectID,
-      this.props.postID,
+      this.props.UUID,
     ))
     .then(response => response.json())
     .then((resp) => {
@@ -50,9 +50,9 @@ class BlogPost extends React.Component {
   }
 
   render() {
-    console.log('post', post);
+    console.log('post', this.state.post);
     return (
-      this.state.loading ? this.props.loadingText : ReactHtmlParser('')
+      this.state.loading ? this.props.loadingText : ReactHtmlParser(this.state.post.html)
     );
   }
 }

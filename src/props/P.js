@@ -6,7 +6,7 @@ export const contextTypes = {
 
 export const propTypes = {
   componentID: PropTypes.string.isRequired,
-  loadingText: PropTypes.string,
+  loadingText: PropTypes.node,
   style: PropTypes.shape({}),
   className: PropTypes.string,
   itemProp: PropTypes.string,

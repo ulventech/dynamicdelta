@@ -1,22 +1,18 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import { contextTypes, propTypes, defaultProps } from '../props/H';
+import { contextTypes, propTypes, defaultProps } from '../props/Wysiwyg';
 import { CDNURL } from '../utils';
 
-class H1 extends React.Component {
+class Wysiwyg extends React.Component {
   static contextTypes = contextTypes;
   static propTypes = propTypes;
   static defaultProps = defaultProps;
 
   state = {
-    text: '',
+    wysiwyg: '',
     style: {},
     loading: true,
     error: null,
-  }
-
-  formatText = text => {
-    return text.replace(/(?:\r\n|\r|\n)/g, "<br />");
   }
 
   componentDidMount() {
@@ -33,7 +29,7 @@ class H1 extends React.Component {
           error: error,
           loading: false,
         });
-        console.error('DynamicDelta [H1] ERROR:', error);
+        console.error('DynamicDelta [WYSIWYG] ERROR:', error);
       });
   }
 
@@ -41,21 +37,18 @@ class H1 extends React.Component {
     const {
       style,
       className,
-      itemProp,
     } = this.props;
-    const text = this.formatText(this.state.text);
     const styles = Object.assign({}, this.state.style, style);
 
     return (
-      <h1
+      <div
         style={styles}
         className={className}
-        itemProp={itemProp}
       >
-        {this.state.loading ? this.props.loadingText : ReactHtmlParser(text)}
-      </h1>
+        {this.state.loading ? this.props.loadingText : ReactHtmlParser(this.state.wysiwyg)}
+      </div>
     );
   }
 }
 
-export default H1;
+export default Wysiwyg;
