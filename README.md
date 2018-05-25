@@ -72,3 +72,14 @@ static defaultProps = {
   className: '',
 }
 ```
+
+If you need to load blogposts from a diffrent project you can override
+the `DynamicDelta` project id by passing the blog component a `overrideProjectID` prop.
+```jsx
+<Blog
+  loadingText="loading posts"
+  overrideProjectID="123"
+>
+  <Posts />
+</Blog>
+```

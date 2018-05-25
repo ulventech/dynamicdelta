@@ -1,6 +1,6 @@
 {
   "name": "dynamicdelta",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Dynamic components for use with www.dynamicdelta.com",
   "main": "dist/index.js",
   "repository": "https://github.com/ulventech/dynamicdelta.git",
@@ -11,6 +11,7 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
+    "qs": "^6.5.2",
     "react": "^16.3.2",
     "react-html-parser": "^2.0.2"
   },
