@@ -30337,7 +30337,7 @@ var Blog = (_temp2 = _class = function (_React$Component) {
 
       fetch((0, _utils.BLOGURL)(this.getProjectID()) + '?' + _qs2.default.stringify({
         page: page,
-        perPage: perPage
+        per_page: perPage
       })).then(function (response) {
         _this2.setState({
           lastPage: (0, _lodash.toNumber)(response.headers.get('x-last-page')),

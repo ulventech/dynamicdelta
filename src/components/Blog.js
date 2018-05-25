@@ -68,7 +68,7 @@ class Blog extends React.Component {
     fetch(
       `${BLOGURL(this.getProjectID())}?${qs.stringify({
         page: page,
-        perPage: perPage,
+        per_page: perPage,
       })}`
     )
     .then((response) => {
