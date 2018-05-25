@@ -30312,25 +30312,37 @@ var Blog = (_temp2 = _class = function (_React$Component) {
   _createClass(Blog, [{
     key: 'getChildContext',
     value: function getChildContext() {
-      return { posts: this.state.posts };
+      return {
+        posts: this.state.posts,
+        lastPage: this.state.lastPage,
+        totalCount: this.state.totalCount
+      };
     }
   }, {
-    key: 'getProjectID',
-    value: function getProjectID() {
-      if (!(0, _lodash.isEmpty)(this.props.overrideProjectID)) {
-        return this.props.overrideProjectID;
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.page !== this.props.page) {
+        this.fetchPage(nextProps.page, nextProps.perPage);
       }
-      return this.context.projectID;
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
+      this.fetchPage(this.props.page, this.props.perPage);
+    }
+  }, {
+    key: 'fetchPage',
+    value: function fetchPage(page, perPage) {
       var _this2 = this;
 
       fetch((0, _utils.BLOGURL)(this.getProjectID()) + '?' + _qs2.default.stringify({
-        page: this.props.page,
-        perPage: this.props.perPage
+        page: page,
+        perPage: perPage
       })).then(function (response) {
+        _this2.setState({
+          lastPage: (0, _lodash.toNumber)(response.headers.get('x-last-page')),
+          totalCount: (0, _lodash.toNumber)(response.headers.get('x-total-count'))
+        });
         return response.json();
       }).then(function (resp) {
         _this2.setState({
@@ -30346,6 +30358,14 @@ var Blog = (_temp2 = _class = function (_React$Component) {
       });
     }
   }, {
+    key: 'getProjectID',
+    value: function getProjectID() {
+      if (!(0, _lodash.isEmpty)(this.props.overrideProjectID)) {
+        return this.props.overrideProjectID;
+      }
+      return this.context.projectID;
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -30358,7 +30378,9 @@ var Blog = (_temp2 = _class = function (_React$Component) {
 
   return Blog;
 }(_react2.default.Component), _class.childContextTypes = {
-  posts: _propTypes2.default.arrayOf(_propTypes2.default.shape({})).isRequired
+  posts: _propTypes2.default.arrayOf(_propTypes2.default.shape({})).isRequired,
+  lastPage: _propTypes2.default.number.isRequired,
+  totalCount: _propTypes2.default.number.isRequired
 }, _class.contextTypes = {
   projectID: _propTypes2.default.string.isRequired
 }, _class.propTypes = {

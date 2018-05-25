@@ -2,13 +2,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
-import { isArray, isEmpty } from 'lodash';
+import { isArray, isEmpty, toNumber } from 'lodash';
 import { BLOGURL } from '../utils';
 import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from 'constants';
 
 class Blog extends React.Component {
   static childContextTypes = {
     posts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    lastPage: PropTypes.number.isRequired,
+    totalCount: PropTypes.number.isRequired,
   }
 
   static contextTypes = {
@@ -45,24 +47,37 @@ class Blog extends React.Component {
   }
 
   getChildContext() {
-    return { posts: this.state.posts };
+    return {
+      posts: this.state.posts,
+      lastPage: this.state.lastPage,
+      totalCount: this.state.totalCount,
+    };
   }
 
-  getProjectID() {
-    if (!isEmpty(this.props.overrideProjectID)) {
-      return this.props.overrideProjectID;
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.page !== this.props.page) {
+      this.fetchPage(nextProps.page, nextProps.perPage);
     }
-    return this.context.projectID;
   }
 
   componentDidMount() {
+    this.fetchPage(this.props.page, this.props.perPage);
+  }
+
+  fetchPage(page, perPage) {
     fetch(
       `${BLOGURL(this.getProjectID())}?${qs.stringify({
-        page: this.props.page,
-        perPage: this.props.perPage,
+        page: page,
+        perPage: perPage,
       })}`
     )
-    .then(response => response.json())
+    .then((response) => {
+      this.setState({
+        lastPage: toNumber(response.headers.get('x-last-page')),
+        totalCount: toNumber(response.headers.get('x-total-count')),
+      });
+      return response.json();
+    })
     .then((resp) => {
       this.setState({
         posts: isArray(resp) ? resp : [],
@@ -76,6 +91,13 @@ class Blog extends React.Component {
       });
       console.error('DynamicDelta [BLOG] ERROR:', error);
     });
+  }
+
+  getProjectID() {
+    if (!isEmpty(this.props.overrideProjectID)) {
+      return this.props.overrideProjectID;
+    }
+    return this.context.projectID;
   }
 
   render() {
