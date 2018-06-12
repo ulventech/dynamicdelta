@@ -38,6 +38,11 @@ class P extends React.Component {
     const expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
     newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
 
+    /*Change phone numbers to tel links. [Your own format number here][+6512345678]
+    E.g. [(65) 1234 5678][+6512345678]
+    */
+    const expression4 = /\[(.+?)\]\((\/?.+?)\)/g
+    newStr = newStr.replace(expression4, '<a href="tel:$2">$1</a>');
     return newStr;
 }
 
