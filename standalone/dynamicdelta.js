@@ -31318,9 +31318,11 @@ var P = (_temp2 = _class = function (_React$Component) {
       var expression3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
       newStr = newStr.replace(expression3, '<a href="mailto:$1">$1</a>');
 
-      //Format for phone numbers
-      var expression4 = /^\(*\+*[1-9]{0,3}\)*-*[1-9]{0,3}[-. /]*\(*[2-9]\d{2}\)*[-. /]*\d{3}[-. /]*\d{4} *e*x*t*\.* *\d{0,4}/g;
-      newStr = newStr.replace(expression4, '<a href="tel:$1">$1</a>');
+      /*Change phone numbers to tel links. [Your own format number here][+6512345678]
+      E.g. [(65) 1234 5678][+6512345678]
+      */
+      var expression4 = /\[(.+?)\]\[(\/?.+?)\]/g;
+      newStr = newStr.replace(expression4, '<a href="tel:$2">$1</a>');
       return newStr;
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }

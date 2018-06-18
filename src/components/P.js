@@ -41,7 +41,7 @@ class P extends React.Component {
     /*Change phone numbers to tel links. [Your own format number here][+6512345678]
     E.g. [(65) 1234 5678][+6512345678]
     */
-    const expression4 = /\[(.+?)\]\((\/?.+?)\)/g
+    const expression4 = /\[(.+?)\]\[(\/?.+?)\]/g
     newStr = newStr.replace(expression4, '<a href="tel:$2">$1</a>');
     return newStr;
 }
