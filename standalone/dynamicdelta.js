@@ -31302,6 +31302,13 @@ var Link = (_temp2 = _class = function (_React$Component) {
       style: {},
       loading: true,
       error: null
+    }, _this.getTarget = function () {
+      var target = {};
+      if (_this.props.targetBlank) {
+        target.target = "_blank";
+        target.rel = "noopener noreferrer";
+      }
+      return target;
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -31335,11 +31342,11 @@ var Link = (_temp2 = _class = function (_React$Component) {
 
       return this.state.loading === false ? _react2.default.createElement(
         'a',
-        {
+        _extends({}, this.getTarget(), {
           style: styles,
           className: className,
           href: this.state.link
-        },
+        }),
         this.state.text
       ) : _react2.default.createElement('span', null);
     }

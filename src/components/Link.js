@@ -33,6 +33,15 @@ class Link extends React.Component {
       });
   }
 
+  getTarget = () => {
+    const target = {};
+    if (this.props.targetBlank) {
+      target.target = "_blank";
+      target.rel = "noopener noreferrer";
+    }
+    return target;
+  }
+
   render() {
     const {
       style,
@@ -43,6 +52,7 @@ class Link extends React.Component {
     return (
       this.state.loading === false ? (
         <a
+          {...this.getTarget()}
           style={styles}
           className={className}
           href={this.state.link}
