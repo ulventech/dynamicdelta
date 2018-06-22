@@ -10,6 +10,7 @@ import H5 from './components/H5';
 import H6 from './components/H6';
 import Img from './components/Img';
 import Wysiwyg from './components/Wysiwyg';
+import Link from './components/Link';
 import Blog from './components/Blog';
 import BlogPost from './components/BlogPost';
 
@@ -24,6 +25,7 @@ module.exports = {
   H6,
   Img,
   Wysiwyg,
+  Link,
   Blog,
   BlogPost,
 };
